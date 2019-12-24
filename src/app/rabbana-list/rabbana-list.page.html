@@ -1,0 +1,316 @@
+<ion-header>
+    <ion-toolbar class="my-rabbana-color">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+      <ion-title  class="list_title">
+      <ion-grid>
+        <ion-row class="ttl-row1">
+          <ion-col size="6" class="ttl-cool" *ngIf="filteredTitle"> 
+            <!-- <p >{{filteredTitle}}</p> -->
+            <!-- <p *ngIf="!copy">{{data.title}}</p> -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-title>
+          <ion-buttons slot="end">
+              <span class="ttl_icn">
+                  <ion-icon class="list_icn" name="home" (click)="DuaListing()"></ion-icon>
+                  <ion-icon class="list_icn" name="clock" (click)="changetm()" [ngStyle]="myNavbarColor"></ion-icon>
+                  <!-- <ion-icon class="list_icn" name="search" (click)="srch()"></ion-icon> -->
+                  <ion-icon class="list_icn" name="more" (click)="FilterData()"></ion-icon>
+                </span>
+            </ion-buttons>
+
+     
+    </ion-toolbar>
+
+    <ion-toolbar class="srch_tool">
+      <ion-grid class="srch_grid">
+        <ion-row class="srch_gridrw">
+          <ion-col class="srch_gridcl">
+            <ion-searchbar class="srch_clbar" [(ngModel)]="searchList" (ionChange)="setFilteredItems()"></ion-searchbar>
+            <ion-list *ngIf="listShow" class="srch_list_ttl">
+                <ion-item scrollX="true" *ngFor="let list of lists" (click)="Chk(list)">
+                  {{ list.title }}
+                </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+
+    <div class="segmentX">
+      <ion-segment [(ngModel)]="category"  (ionChange)="segmentChanged($event)" scrollable>
+        <div *ngFor="let category of AllList" >      
+        <ion-segment-button class="Ct_btn"  *ngIf="category.title == currentActive" checked value={{category.title}} (click)="Check(category)">
+            {{category.title}}
+        </ion-segment-button>
+        <ion-segment-button class="Ct_btn"  *ngIf="category.title !== currentActive"  value={{category.title}} (click)="Check(category)">
+          {{category.title}}
+      </ion-segment-button>
+      </div>
+      </ion-segment>
+    </div>
+  </ion-header>
+
+
+<ion-content >
+  <ion-slides  #mySlider  (ionSlideDidChange)="slideChanged(AllList)"> 
+    
+    <ion-slide *ngFor="let category of AllList" >
+
+
+
+  
+
+    <ion-card class="welcome-card">
+      <div class="padding_Top">
+   
+        <ion-range min="0" max="{{duration}}" [(ngModel)]="position" color="light">
+        </ion-range>
+        <div class="rangePlaytime">
+          <ion-label class="startTime" color="light">{{ display_position }}</ion-label>
+          <ion-label class="endTime" color="light" *ngIf="duration == -1">--:--</ion-label>
+          <ion-label class="endTime" color="light" *ngIf="duration != -1">{{ display_duration }}</ion-label>
+        </div>
+    
+      </div>
+
+      <!-- <p class="Statement" *ngIf="ShowPlay">Playing ...</p>
+  -->
+
+  <!-- <button (click)="checkBookMark()">checkBookMark</button> -->
+        <ion-grid>
+            <ion-row>
+              <ion-col size="2" class="shr-col"><ion-icon class="shr-icn" (click)="share(category)" name="share"></ion-icon></ion-col>
+              <ion-col size="8">
+                  <div class="Box">
+                      <p class="p_">
+                        LoremIpsumcopyX
+                      </p>
+                    </div>
+              </ion-col>
+              <ion-col size="2" class="str-col">
+                  <ion-icon class="str-icn" *ngIf="!mark" name="star-outline" (click)="starItem(category)"></ion-icon>
+                  <ion-icon class="str-icn" *ngIf="mark" name="star" (click)="starItem(category)"></ion-icon>
+
+              
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+
+     
+      <div class="tran_1">
+          <ion-item  *ngIf="showMinus1" (click)="Ctrl_version_1()">
+              <ion-label>Original verse</ion-label>
+              <div class="SH" >
+                  <ion-icon class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
+            
+              </div>
+  
+           
+            
+            </ion-item>
+
+
+            <ion-item  *ngIf="showPlus1"  (click)="Ctrl2_version_1()">
+                <ion-label>Original verse</ion-label>
+                <div class="SH"  >
+                    <ion-icon  class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon>
+             
+                </div>
+              
+              </ion-item>
+
+            
+
+            <div class="animated  fadeIn " *ngIf="showHide_1" >
+            
+                <p class="T_1">{{category.do3}}</p>
+              
+            </div>
+      </div>
+  
+  
+
+      <!-- 2 //////  -->
+          <div class="tran_3">
+              <ion-item  *ngIf="showMinus3" (click)="Ctrl_version_3()">
+                  <ion-label>Transliteration</ion-label>
+                  <div class="SH" >
+                      <ion-icon  class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
+                
+                    </div>
+               
+                </ion-item>
+
+                <ion-item *ngIf="showPlus3" (click)="Ctrl2_version_3()">
+                    <ion-label>Transliteration</ion-label>
+                    <div class="SH"  >
+                        <ion-icon   class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup" ></ion-icon>
+           
+                      </div>
+                  </ion-item>
+                <div class="animated  fadeIn "  *ngIf="showHide_3" >
+            
+                    <p class="T_3">{{category.do2}}</p>
+                  
+                </div>
+           
+        
+          </div>
+
+
+          <div class="tran_2">
+              <ion-item (click)="Ctrl_version_2()" *ngIf="showMinus2"> 
+                <ion-label>English Translation</ion-label>
+                  <div class="SH"  >
+                    <ion-icon  class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
+                  </div>
+                 
+                </ion-item>
+
+                <ion-item (click)="Ctrl2_version_2()"  *ngIf="showPlus2">
+                    <ion-label>English Translation</ion-label>
+                 
+                          <div class="SH" >
+                            <ion-icon class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup" (click)="Ctrl2_version_2()"></ion-icon>
+                          </div>
+                    </ion-item>
+
+                <div class="animated  fadeIn "  *ngIf="showHide_2" >
+                    <p class="T_2">{{category.do1}}</p>
+                </div>   
+          </div>
+
+<!-- 4 / / /  -->
+          <div class="tran_4">
+              <ion-item  *ngIf="showMinus4" (click)="Ctrl_version_4()">
+                  <ion-label >Chichewa Translation</ion-label>
+                  <div class="SH" >
+                      <ion-icon  class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
+                  
+                    </div>
+    
+                 
+                      
+                </ion-item>
+
+
+                <ion-item  *ngIf="showPlus4" (click)="Ctrl2_version_4()">
+                    <ion-label >Chichewa Translation</ion-label>
+               
+      
+                       <div class="SH" >
+                          <ion-icon class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup" ></ion-icon>
+               
+                          </div>
+                        
+                  </ion-item>
+                <div class="animated  fadeIn "  *ngIf="showHide_4">
+                
+                    <p class="T_2">{{category.do4}}</p>
+                  
+                </div>
+             
+            </div>
+
+
+  
+    </ion-card>
+      
+  </ion-slide> 
+
+</ion-slides>
+
+
+
+
+
+
+
+
+</ion-content>
+
+<ion-footer >
+
+
+
+
+  <ion-toolbar class="my-rabbana-color my-style-ra" [ngStyle]="{'background-color': buttonColor}">
+
+
+
+    <div class="sub_header" style="margin-left: 0;">
+
+        <ion-row justify-content-center align-items-center style="height: 80px">
+            <ion-col size="2">
+              <div class="flexRow">
+                <div>
+                  <ion-button fill="clear" color="light">
+                      <ion-icon class="Iconsize_For_Rev" *ngIf="!mark" name="star-outline" (click)="starItem()"></ion-icon>
+                  <ion-icon class="Iconsize_For_Rev" *ngIf="mark" name="star" (click)="starItem()"></ion-icon>
+                    <!-- <ion-icon name="heart-empty" class=""></ion-icon> -->
+                  </ion-button>
+                </div>
+              </div>
+            </ion-col>
+
+            <ion-col size="8" style="padding-left: 28px;">
+              <div class="flexRow"> 
+                <div>
+                  <ion-button fill="clear" color="light" (click)="controlSeconds('back')">
+                    <ion-icon name="rewind"></ion-icon>
+                  </ion-button>
+                </div>
+      
+                <div style="border-radius: 50%; border: solid; transform: translateY(-4px);">
+                  <ion-button class="play_pause_btn" (click)="play()" color="light" *ngIf="!is_playing" justify-content-center
+                    [disabled]="!is_ready" align-items-center>
+                    <ion-icon name="play" class="darkColor"></ion-icon>
+                  </ion-button>
+      
+                  <ion-button class="play_pause_btn" (click)="pause()" color="light" *ngIf="is_playing" justify-content-center
+                    [disabled]="!is_ready" align-items-center>
+                    <ion-icon name="pause" class="darkColor"></ion-icon>
+                  </ion-button>
+                </div>
+      
+                <div>
+                  <ion-button fill="clear" color="light" (click)="controlSeconds('forward')">
+                    <ion-icon name="fastforward" class="Iconsize_For_Rev"></ion-icon>
+                  </ion-button>
+                </div>
+              </div>
+            </ion-col>
+            
+            <ion-col size="2">
+              <div class="flexRow"> 
+                      <!-- <div>
+                        <ion-button fill="clear" color="light" (click)="DownloadFile()">
+                            <ion-icon class="dnld_file" name="download"></ion-icon>
+                        </ion-button>
+                      </div> -->
+              </div>
+            </ion-col>
+          </ion-row>
+
+
+      <!-- <ion-icon ios="ios-play" md="md-play" class="Play_i" (click)="playAudio()"></ion-icon>
+
+      <ion-icon ios="ios-square" md="md-square"  class="Pause_i" (click)="StopAudio()"></ion-icon> -->
+
+      <!-- <ion-icon ios="ios-volume-down" md="md-volume-down" (click)="Adjust_Volume()"></ion-icon> -->
+      
+ 
+
+      <!-- <ion-icon name="download" (click)="download_()" ></ion-icon> -->
+      
+  </div>
+
+ 
+</ion-toolbar>
+
+</ion-footer>

@@ -1,0 +1,102 @@
+.welcome_card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+.title_c {
+  margin-top: 0px;
+  font-size: 14px;
+  line-height: 21px;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  font-family: Gotham;
+  color: #424242;
+  font-weight: 500;
+}
+
+ion-toolbar.in-toolbar.md.toolbar-title-default.hydrated {
+  --background: #1e867f;
+  --color: white;
+}
+
+h3.title_ {
+  color: #2ed4ca;
+  font-family: Gotham;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+p.Dual{
+  font-size: 12px;
+  line-height: 18px;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  font-family: Gotham;
+  color: #000000;
+  font-weight: 500;
+}
+
+
+
+// ion-content{
+//   --background: linear-gradient(45deg, rgba(156,160,213,1) 0%, rgba(214,216,230,1) 48%, rgba(214,216,230,1) 52%, rgba(156,160,213,1) 100%);
+// }
+
+ion-card.welcome_card{
+  border: 2px solid #dddddd;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px #636363;
+  background: #fff;
+  margin-top: 20px;
+  padding: 0px 10px 5px 10px;
+}
+
+ion-toolbar{
+  --background: #2ed4ca !important;
+}
+
+
+
+.main_ttl .Rabbanas_title{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+}
+ion-menu-button.hydrated {
+  color: #fff;
+}
+ion-card-header.crd_headr {
+  padding: 0px;
+}
+ion-card-content.crd_cnt {
+  padding: 0px;
+}
+
+.Cate__ {
+  padding: 40px;
+}
+
+
+
+.category_content {
+  text-align: center;
+  display: grid;
+}
+
+button.p__ {
+  background: #2ed4ca;
+  padding: 12px;
+  color: white;
+  font-size: 16px;
+  margin-right: 10px;
+  font-family: Gotham;
+  margin-bottom: 12px;
+}
