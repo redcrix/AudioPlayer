@@ -17,7 +17,7 @@ import {
   HttpClientModule 
 } from '@angular/common/http';
 import { HttpConfigInterceptor } from './httpConfig.interceptor';
-import { AnimationService, AnimatesDirective } from 'css-animator';
+// import { AnimationService, AnimatesDirective } from 'css-animator';
 import { HomePageModule } from './home/home.module';
 import { ListPageModule } from './list/list.module';
 
@@ -31,7 +31,8 @@ import {CalPage } from './rabbana-list/calender_Time';
 import { Media } from '@ionic-native/media/ngx';
 
 @NgModule({
-  declarations: [AppComponent,AnimatesDirective,CalPage],
+  // declarations: [AppComponent,AnimatesDirective,CalPage],
+  declarations: [AppComponent,CalPage],
   entryComponents: [],
   imports: [
     IonicStorageModule.forRoot(),
@@ -44,7 +45,7 @@ import { Media } from '@ionic-native/media/ngx';
     BrowserAnimationsModule
   ],
   providers: [
-    AnimationService,
+    // AnimationService,
     NativeAudio,
     SocialSharing,
     LocalNotifications,

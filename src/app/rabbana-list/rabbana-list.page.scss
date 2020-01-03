@@ -67,7 +67,7 @@ p.T_2 {
 }
 
 .sub_header {
-    padding: 10px;
+  padding: 0 10px 10px 10px;
 }
 
 .Play_i{
@@ -395,10 +395,38 @@ ion-icon.dnld_file {
 }
 
 .my-style-ra{
-  height: 52px;
+  height: 84px;
   display: -webkit-box;
 }
 
 .swiper-slide {
   display: block;
+}
+
+.toolbar-background{
+  margin-top: 25px !important;
+}
+
+.footer-ios ion-toolbar:first-child {
+  --border-width: 25.55px 0 0;
+  --border-color:white;
+  --background: #2dd3c9 !important;
+}
+
+ion-footer ion-toolbar:first-child {
+  --border-width: 25.55px 0 0;
+  --border-color: white;
+  --background: #2dd3c9 !important;
+}
+
+.outer_button{
+  background: #2ed4ca;
+  border-radius: 3em 3em;
+  /* border: solid; */
+  width: 81px;
+  transform: translateY(0px);
+}
+
+.start-leftright{
+  transform: translateY(10px);
 }

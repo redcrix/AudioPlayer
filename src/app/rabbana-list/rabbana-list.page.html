@@ -17,7 +17,7 @@
           <ion-buttons slot="end">
               <span class="ttl_icn">
                   <ion-icon class="list_icn" name="home" (click)="DuaListing()"></ion-icon>
-                  <ion-icon class="list_icn" name="clock" (click)="changetm()" [ngStyle]="myNavbarColor"></ion-icon>
+                  <ion-icon class="list_icn" name="clock" (click)="changetm()"></ion-icon>
                   <!-- <ion-icon class="list_icn" name="search" (click)="srch()"></ion-icon> -->
                   <ion-icon class="list_icn" name="more" (click)="FilterData()"></ion-icon>
                 </span>
@@ -42,7 +42,8 @@
     </ion-toolbar>
 
     <div class="segmentX">
-      <ion-segment [(ngModel)]="category"  (ionChange)="segmentChanged($event)" scrollable>
+      <!-- <ion-segment [(ngModel)]="category"  (ionChange)="segmentChanged($event)" scrollable> -->
+        <ion-segment [(ngModel)]="category" scrollable>
         <div *ngFor="let category of AllList" >      
         <ion-segment-button class="Ct_btn"  *ngIf="category.title == currentActive" checked value={{category.title}} (click)="Check(category)">
             {{category.title}}
@@ -234,7 +235,7 @@
 
 </ion-content>
 
-<ion-footer >
+<ion-footer style="position: unset !important;">
 
 
 
@@ -245,13 +246,13 @@
 
     <div class="sub_header" style="margin-left: 0;">
 
-        <ion-row justify-content-center align-items-center style="height: 80px">
+        <ion-row justify-content-center align-items-center style="height: 70px">
             <ion-col size="2">
               <div class="flexRow">
-                <div>
+                <div class="start-leftright">
                   <ion-button fill="clear" color="light">
-                      <ion-icon class="Iconsize_For_Rev" *ngIf="!mark" name="star-outline" (click)="starItem()"></ion-icon>
-                  <ion-icon class="Iconsize_For_Rev" *ngIf="mark" name="star" (click)="starItem()"></ion-icon>
+                      <ion-icon class="Iconsize_For_Rev" *ngIf="!mark" name="star-outline" (click)="starItem(category)"></ion-icon>
+                  <ion-icon class="Iconsize_For_Rev" *ngIf="mark" name="star" (click)="starItem(category)"></ion-icon>
                     <!-- <ion-icon name="heart-empty" class=""></ion-icon> -->
                   </ion-button>
                 </div>
@@ -260,13 +261,13 @@
 
             <ion-col size="8" style="padding-left: 28px;">
               <div class="flexRow"> 
-                <div>
+                <div class="start-leftright">
                   <ion-button fill="clear" color="light" (click)="controlSeconds('back')">
                     <ion-icon name="rewind"></ion-icon>
                   </ion-button>
                 </div>
       
-                <div style="border-radius: 50%; border: solid; transform: translateY(-4px);">
+                <div class="outer_button">
                   <ion-button class="play_pause_btn" (click)="play()" color="light" *ngIf="!is_playing" justify-content-center
                     [disabled]="!is_ready" align-items-center>
                     <ion-icon name="play" class="darkColor"></ion-icon>
@@ -278,7 +279,7 @@
                   </ion-button>
                 </div>
       
-                <div>
+                <div  class="start-leftright">
                   <ion-button fill="clear" color="light" (click)="controlSeconds('forward')">
                     <ion-icon name="fastforward" class="Iconsize_For_Rev"></ion-icon>
                   </ion-button>
