@@ -24,14 +24,15 @@ url = './rabannas_data.json';
     this.animator = animationService.builder();
     this.Details;
 
-    console.log('LOCAL STORAGE JS/WORK ON ANDROID.',localStorage.getItem("BookMarkList"));
+    // console.log('LOCAL STORAGE JS/WORK ON ANDROID.',localStorage.getItem("BookMarkList"));
    
 
-    this.Book_M = localStorage.getItem("BookMarkList");
+    // this.Book_M = localStorage.getItem("BookMarkList");
 
   this.httpService.getListing().subscribe(res => {
     this.items = res;
   });
+  
   }
 
   ionViewCanEnter(){

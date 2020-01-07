@@ -1,15 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>settings</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="main_ttl">
+      <h3 class="Rabbanas_title"> Settings</h3>
+ 
+    </ion-title>
+
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <div class="Links">
-    <div class="item" (click)="Favourites()">
-      <p>Favourites</p>
-    </div>
-  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label>Day Theme</ion-label>
+      <ion-toggle [(ngModel)]="mode" (ionChange)="cycleTheme()"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Night Mode</ion-label>
+      <ion-toggle [(ngModel)]="mode2" (ionChange)="setTheme()"></ion-toggle>
+    </ion-item>
+
+    </ion-list>
+
 
 </ion-content>

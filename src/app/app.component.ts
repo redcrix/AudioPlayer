@@ -99,7 +99,11 @@ export class AppComponent {
 
   openAppPages(x){
 
-    this.router.navigate([x]);
+    setTimeout(()=>{    
+      this.router.navigate([x]);
+      }, 2000);
+
+ 
 
   }
 }

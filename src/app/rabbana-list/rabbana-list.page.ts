@@ -233,7 +233,7 @@ export class RabbanaListPage implements OnInit {
     // }); 
 
 
-    console.log('LOCAL STORAGE JS/WORK ON ANDROID.'+localStorage.getItem("BookMarkList"));
+    // console.log('LOCAL STORAGE JS/WORK ON ANDROID.'+localStorage.getItem("BookMarkList"));
 
     if(this.copyX = true){
       console.log(this.duasAudio);
@@ -426,10 +426,13 @@ export class RabbanaListPage implements OnInit {
     } else {
       this.itemisselected = false;
     }
+
+    console.log(this.searchList);
+    
     
     console.log('Filtering the itmes');
     this.lists = this.remoteServiceService.filterItems(this.searchList);
-    console.log('?FILTERED ITEMS FROM REMOTE SERVICE = '+this.lists); 
+    console.log('?FILTERED ITEMS FROM REMOTE SERVICE = '+JSON.stringify(this.lists)); 
   }
 
   // call a function to refresh values in component.
@@ -633,7 +636,7 @@ checkEXTRA(){
 
    this.slides.getActiveIndex().then(data=>{
 
-    console.log('ACTIVE INDEX = 2'+data);
+  
     
      console.log(this.AllList[data]);
 
@@ -641,11 +644,12 @@ checkEXTRA(){
 
      this.prepareAudioFile();
 this.segMeChange = data;
-     
+console.log('ACTIVE INDEX = '+this.segMeChange);
     this.Check(this.AllList[data]);
+    this.focusSegment(this.segMeChange);
   });
 
-  this.focusSegment(this.segMeChange);
+ 
 
   }
 
@@ -932,20 +936,17 @@ console.log(this.AllList);
 
 }
 
-controlBack(){
+// for AutoPlay
+
+// controlBack(){
   
 
-}
+// }
 
-controlForward(){
-
-
-}
+// controlForward(){
 
 
-  // DOWNLOAD FILE via file-transfer and file cordova plugins
-
-
+// }
 
 
 

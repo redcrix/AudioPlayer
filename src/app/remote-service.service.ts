@@ -82,6 +82,21 @@ export class RemoteServiceService {
           return;
       }
     return this.lists.filter(list => {
+
+      // console.log(list);
+
+      let Var = [];
+
+      Var = [{
+        title : list.title,
+        do1 : list.do1
+      }];
+
+
+
+      // console.log(Var);
+      
+      
       return list.title.toUpperCase().indexOf(searchList.toUpperCase()) > -1;
     });
   }
