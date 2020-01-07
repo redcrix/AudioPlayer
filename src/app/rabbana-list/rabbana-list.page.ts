@@ -33,7 +33,6 @@ import { IonSlides } from '@ionic/angular';
 export class RabbanaListPage implements OnInit {
   @ViewChild('mySlider', {static: true}) slides: IonSlides;
 
-  
   storageDirectory: string = '';
   private fileTransfer: FileTransferObject = this.filetransfer.create();
   public sendTo   : any;
@@ -55,6 +54,7 @@ export class RabbanaListPage implements OnInit {
   duasAudio:any;
   //.a
   copyX = true;
+  segMeChange = 0;
   //.
   lastCopy = false;
   //change color dynamic
@@ -114,6 +114,7 @@ export class RabbanaListPage implements OnInit {
   get_duration_interval: any;
   display_position: any = '00:00';
   display_duration: any = '00:00';
+  segments :any;
 
 
   constructor(
@@ -380,9 +381,9 @@ export class RabbanaListPage implements OnInit {
     }
   }
 
-  ngOnDestroy() {
-    this.stop();
-  }
+  // ngOnDestroy() {
+  //   this.stop();
+  // }
 
   toHHMMSS(secs) {
     var sec_num = parseInt(secs, 10)
@@ -501,6 +502,53 @@ export class RabbanaListPage implements OnInit {
     this.copyX = true;
     this.lastCopy = false;
     this.currentActive=New.title;
+    console.log('segment Before'+this.segment);
+    
+    var matches=this.currentActive.match(/(\d+)/);
+    console.log('matches'+matches);
+    var x = 1;
+    var negX = ( -x );
+    
+    this.slides.slideTo(matches[0]-1);
+console.log(matches+negX);
+
+var Match = matches+(negX);
+console.log('Match'+Match);
+
+    // this.slides.slideTo(matches+negX);
+  // this.slides.update();
+
+
+  //  let getActive =  this.slides.getActiveIndex();
+  //  console.log('getActiveee'+getActive);
+  //  this.focusSegment(this.segment+1);
+    // this.focusSegment(this.segment+1);
+
+
+  }
+
+  focusSegment(segmentId) {
+    document.getElementById('seg-'+segmentId).scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'center'
+    });
+  }
+
+  Check2(){
+
+    console.log(this.duasAudio);
+    // this.prepareAudioFile();
+    this.slides.slidePrev();
+
+  }
+
+  Check3(){
+
+    console.log(this.duasAudio);
+    // this.prepareAudioFile();
+    this.slides.slideNext();
+
   }
 
 
@@ -508,11 +556,6 @@ export class RabbanaListPage implements OnInit {
     let duas = this.duasAudio;
     console.log('duascvvbvcbfgb');
     console.log(duas);
-
-    // this.nativeAudio.preloadSimple(duas, '../../assets/DuasAudio/'+duas).then((data)=>{
-    // console.log(duas+ 'is playing');
-    //   // alert(data);
-    // });
 
     console.log('../../assets/DuasAudio/'+duas);
     
@@ -563,37 +606,49 @@ export class RabbanaListPage implements OnInit {
   }
 
 
-
-
-  // segmentChanged(event:any) {
-  //   setTimeout(() => {
-  //     this.slides.slideTo(this.segment);
-  //     this.slides.update();
-
-  //   }, 2000);
-
-
-
-
+checkEXTRA(){
+  console.log(this.segment);
   
+}
+
+
+
+
+
+// async segmentChanged(event) {
+//   await this.slides.slideTo(this.segment);
+//   this.slides.update();
+
+//   this.Check(this.AllList[data]);
+
+// }
+
+
+
+
+
+ async slideChanged(category) {
+
  
-  // }
- slideChanged(category) {
 
    this.slides.getActiveIndex().then(data=>{
+
+    console.log('ACTIVE INDEX = 2'+data);
+    
      console.log(this.AllList[data]);
+
+
+
+     this.prepareAudioFile();
+this.segMeChange = data;
+     
     this.Check(this.AllList[data]);
   });
-  //    this.focusSegment(this.segment+1);
+
+  this.focusSegment(this.segMeChange);
+
   }
-  
-  focusSegment(segmentId) {
-    document.getElementById('seg-'+segmentId).scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'center',
-      inline: 'center'
-    });
-  }
+
 
 
 
@@ -767,6 +822,9 @@ alert('imageLocation'+imageLocation);
 
 // == NATIVE STORAGE 
 if (this.platform.is('ios') ) {
+
+  console.log('????????');
+  
   
   this.storage.get('BookMarkList').then((val) => {
 
@@ -871,6 +929,16 @@ console.log(this.AllList);
 
 this.replaceByValue('type','Chocolate','only water')
 console.log(this.AllList);
+
+}
+
+controlBack(){
+  
+
+}
+
+controlForward(){
+
 
 }
 

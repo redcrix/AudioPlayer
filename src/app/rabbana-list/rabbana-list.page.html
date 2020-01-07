@@ -41,24 +41,31 @@
       </ion-grid>
     </ion-toolbar>
 
+
+
+  
+
     <div class="segmentX">
       <!-- <ion-segment [(ngModel)]="category"  (ionChange)="segmentChanged($event)" scrollable> -->
-        <ion-segment [(ngModel)]="category" scrollable>
-        <div *ngFor="let category of AllList" >      
-        <ion-segment-button class="Ct_btn"  *ngIf="category.title == currentActive" checked value={{category.title}} (click)="Check(category)">
+        <ion-segment  scrollable [(ngModel)]="category" (ionChange)="segmentChanged($event)" >
+        <div *ngFor="let category of AllList; let i = index" >      
+        <ion-segment-button class="Ct_btn"  *ngIf="category.title == currentActive" id="seg-{{i}}" checked value={{category.title}} (click)="Check(category)">
             {{category.title}}
         </ion-segment-button>
-        <ion-segment-button class="Ct_btn"  *ngIf="category.title !== currentActive"  value={{category.title}} (click)="Check(category)">
+        <ion-segment-button class="Ct_btn"   *ngIf="category.title !== currentActive" id="seg-{{i}}" value={{category.title}} (click)="Check(category)">
           {{category.title}}
       </ion-segment-button>
       </div>
       </ion-segment>
     </div>
+
+
+
   </ion-header>
 
 
 <ion-content >
-  <ion-slides  #mySlider  (ionSlideDidChange)="slideChanged(AllList)"> 
+  <ion-slides  #mySlider  (ionSlideDidChange)="slideChanged(AllList)" class="slideCustom"> 
     
     <ion-slide *ngFor="let category of AllList" >
 
@@ -89,7 +96,7 @@
               <ion-col size="8">
                   <div class="Box">
                       <p class="p_">
-                        LoremIpsumcopyX
+                        {{category.title}}
                       </p>
                     </div>
               </ion-col>
@@ -247,22 +254,22 @@
     <div class="sub_header" style="margin-left: 0;">
 
         <ion-row justify-content-center align-items-center style="height: 70px">
-            <ion-col size="2">
+            <!-- <ion-col size="2">
               <div class="flexRow">
                 <div class="start-leftright">
                   <ion-button fill="clear" color="light">
                       <ion-icon class="Iconsize_For_Rev" *ngIf="!mark" name="star-outline" (click)="starItem(category)"></ion-icon>
                   <ion-icon class="Iconsize_For_Rev" *ngIf="mark" name="star" (click)="starItem(category)"></ion-icon>
-                    <!-- <ion-icon name="heart-empty" class=""></ion-icon> -->
+            
                   </ion-button>
                 </div>
               </div>
-            </ion-col>
+            </ion-col> -->
 
-            <ion-col size="8" style="padding-left: 28px;">
+            <ion-col size="8" style="padding-left: 28px;" >
               <div class="flexRow"> 
                 <div class="start-leftright">
-                  <ion-button fill="clear" color="light" (click)="controlSeconds('back')">
+                  <ion-button fill="clear" color="light"   (click)="Check2()">
                     <ion-icon name="rewind"></ion-icon>
                   </ion-button>
                 </div>
@@ -280,22 +287,22 @@
                 </div>
       
                 <div  class="start-leftright">
-                  <ion-button fill="clear" color="light" (click)="controlSeconds('forward')">
+                  <ion-button fill="clear" color="light"   (click)="Check3()">
                     <ion-icon name="fastforward" class="Iconsize_For_Rev"></ion-icon>
                   </ion-button>
                 </div>
               </div>
             </ion-col>
             
-            <ion-col size="2">
-              <div class="flexRow"> 
+            <!-- <ion-col size="2">
+              <div class="flexRow">  -->
                       <!-- <div>
                         <ion-button fill="clear" color="light" (click)="DownloadFile()">
                             <ion-icon class="dnld_file" name="download"></ion-icon>
                         </ion-button>
                       </div> -->
-              </div>
-            </ion-col>
+              <!-- </div>
+            </ion-col> -->
           </ion-row>
 
 
