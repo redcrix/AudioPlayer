@@ -41,6 +41,7 @@ export class RabbanaListPage implements OnInit {
   segment = 0;
   //list received from route
   data: any;
+  favdata:any=[];
   AllList = [];
   maindata=[];
   category:any;
@@ -246,10 +247,11 @@ export class RabbanaListPage implements OnInit {
    }
 
   ngOnInit() {
-
       this.route.queryParams.subscribe(params => {
         this.Check(JSON.parse(params.current));
       });
+
+      
     
 
     this.prepareAudioFile();
@@ -493,7 +495,7 @@ export class RabbanaListPage implements OnInit {
     }
 
 
-  Check(New){
+ async Check(New){
     this.category=New.title;
     this.filteredList_3 = New.do3;
     this.filteredList_1 = New.do1;
@@ -502,6 +504,29 @@ export class RabbanaListPage implements OnInit {
     this.copy = true;
     this.duasAudio= New.duasAudio;
     this.mark = New.mark;
+//Mark
+
+if (this.platform.is('ios') ) {
+  await this.storage.get('BookMarkList').then((res) => {
+      if(res.indexOf(New.title)==-1)
+      this.mark=false;
+      else
+      this.mark=true;
+  });
+
+ }
+ else{
+ var res=JSON.parse(await  localStorage.getItem('BookMarkList'));
+ if(res.indexOf(New.title)==-1)
+      this.mark=false;
+      else
+      this.mark=true;
+ }
+
+//mark
+
+
+
     this.copyX = true;
     this.lastCopy = false;
     this.currentActive=New.title;
@@ -815,99 +840,36 @@ alert('imageLocation'+imageLocation);
    
   }
 
-  starItem(x){
-    
-  
-                  
-
-  // set a key/value 
-  // alert(1);
-
-
-// == NATIVE STORAGE 
-if (this.platform.is('ios') ) {
-
-  console.log('????????');
-  
-  
-  this.storage.get('BookMarkList').then((val) => {
-
-    // alert(2);
-
-   // let valT = localStorage.getItem('BookMarkList');
-
-    console.log('this.StarList'+this.StarList);
-    
-this.maindata=val;
-
-
-if(this.maindata.indexOf(this.duasAudio)>=0){
-  this.mark=false;
-  console.log('12')
-  const index: number = this.StarList.indexOf(x.duasAudio);
-  if (index !== -1) {
-      this.StarList.splice(index, 1);
-  } 
-
-  //localStorage.setItem('BookMarkList', JSON.stringify(this.StarList));
-
-  this.storage.set('BookMarkList', this.StarList);
-}
-else{
-  this.mark=true;
-     this.StarList.push(x.duasAudio);
-     
-     this.storage.set('BookMarkList', this.StarList);
-
-}
-  });
-}
-  else{
-
-    console.log('pack'+ x.duasAudio);
-
-    var vallocal1 = '';
-    
-    var vallocal1=localStorage.getItem('BookMarkList');
-
-    var vallocal=JSON.stringify(vallocal1);
-
-    console.log(vallocal);
-    
-    if(vallocal==null){
-
-      console.log('sss');
-      
-      this.mark=true;
-      this.StarList.push(x.duasAudio);
-    
-      localStorage.setItem('BookMarkList', JSON.stringify(this.StarList));
-    }
-    if(vallocal.indexOf(x.duasAudio)>=0){
-      this.mark=false;
-      console.log('12')
-      const index: number = this.StarList.indexOf(this.duasAudio);
-      if (index !== -1) {
-          this.StarList.splice(index, 1);
-      } 
-    
-      //localStorage.setItem('BookMarkList', JSON.stringify(this.StarList));
-    
-      localStorage.setItem('BookMarkList', JSON.stringify(this.StarList));
+  async starItem(x,chk){
+    this.mark=chk;  
+    if (this.platform.is('ios') ) {
+     await this.storage.get('BookMarkList').then((res) => {
+      if(!res)
+        this.favdata=[];
+      else
+      this.favdata=res;
+     });
+     if(chk==true)
+     this.favdata.push(x.title);
+     else if(this.favdata.indexOf(x.title)!==-1)
+     this.favdata.splice(this.favdata.indexOf(x.title),1); 
+     this.storage.set('BookMarkList',this.favdata);
     }
     else{
-      this.mark=true;
-         this.StarList.push(x.duasAudio);
-    
-         localStorage.setItem('BookMarkList', JSON.stringify(this.StarList));
-         
-    
+    var res=JSON.parse(await  localStorage.getItem('BookMarkList'));
+    if(!res)
+    this.favdata=[];
+    else
+    this.favdata=res;
+    if(chk==true)
+    this.favdata.push(x.title);
+    else if(this.favdata.indexOf(x.title)!==-1)
+    this.favdata.splice(this.favdata.indexOf(x.title),1);
+   localStorage.setItem('BookMarkList',JSON.stringify(this.favdata));
     }
-      
-  }
  
-  }
 
+}
 
 
 

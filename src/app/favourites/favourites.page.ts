@@ -44,6 +44,7 @@ export class FavouritesPage implements OnInit {
   clear(){
     this.storage.clear();
     localStorage.clear();
+    this.LocalStorage_=[];
   }
 
 }
