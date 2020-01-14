@@ -58,7 +58,6 @@ export class AppComponent {
   ) {
 
     this.httpService.getListing().subscribe(res => {
-      console.log(res);
       this.items = res;
     });
 

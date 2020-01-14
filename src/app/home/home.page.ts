@@ -49,10 +49,10 @@ url = './rabannas_data.json';
   }
 
   OpenDetail(a){
-    
+    console.log(a.title);
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        current: JSON.stringify(a)
+        current: a.title
       }
     }
     this.navCtrl.navigateForward(['rabbana-list'], navigationExtras);

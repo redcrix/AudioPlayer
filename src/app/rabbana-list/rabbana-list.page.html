@@ -32,8 +32,11 @@
           <ion-col class="srch_gridcl">
             <ion-searchbar class="srch_clbar" [(ngModel)]="searchList" (ionChange)="setFilteredItems()"></ion-searchbar>
             <ion-list *ngIf="listShow" class="srch_list_ttl">
-                <ion-item scrollX="true" *ngFor="let list of lists" (click)="Chk(list)">
+                <ion-item scrollX="true" *ngFor="let list of lists" (click)="Check(list)">
                   {{ list.title }}
+                </ion-item>
+                <ion-item *ngIf="noresulttext">
+                 No results found
                 </ion-item>
             </ion-list>
           </ion-col>
@@ -47,7 +50,7 @@
 
     <div class="segmentX">
       <!-- <ion-segment [(ngModel)]="category"  (ionChange)="segmentChanged($event)" scrollable> -->
-        <ion-segment  scrollable [(ngModel)]="category" (ionChange)="segmentChanged($event)" >
+        <ion-segment  scrollable [(ngModel)]="category"  >
         <div *ngFor="let category of AllList; let i = index" >      
         <ion-segment-button class="Ct_btn"  *ngIf="category.title == currentActive" id="seg-{{i}}" checked value={{category.title}} (click)="Check(category)">
             {{category.title}}

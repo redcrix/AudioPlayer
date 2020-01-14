@@ -21,6 +21,7 @@ import { ModalController } from '@ionic/angular';
 
 declare var cordova: any;
 import { IonSlides } from '@ionic/angular';
+import { IfStmt } from '@angular/compiler';
  
 
 @Component({
@@ -54,6 +55,7 @@ export class RabbanaListPage implements OnInit {
   mark:any;
   duasAudio:any;
   //.a
+  noresulttext=false;
   copyX = true;
   segMeChange = 0;
   //.
@@ -247,8 +249,9 @@ export class RabbanaListPage implements OnInit {
    }
 
   ngOnInit() {
+
       this.route.queryParams.subscribe(params => {
-        this.Check(JSON.parse(params.current));
+        this.Check({'title':params.current});
       });
 
       
@@ -428,12 +431,16 @@ export class RabbanaListPage implements OnInit {
     } else {
       this.itemisselected = false;
     }
-
-    console.log(this.searchList);
-    
-    
-    console.log('Filtering the itmes');
+    console.log(this.searchList)
+  
     this.lists = this.remoteServiceService.filterItems(this.searchList);
+    console.log(this.lists)
+    if(this.lists==undefined){
+      this.noresulttext=false;
+   }
+    else if(this.lists.length==0){
+      this.noresulttext=true;
+   }
     console.log('?FILTERED ITEMS FROM REMOTE SERVICE = '+JSON.stringify(this.lists)); 
   }
 
@@ -496,6 +503,9 @@ export class RabbanaListPage implements OnInit {
 
 
  async Check(New){
+
+  console.log(this.searchList);
+   this.listShow=false;
     this.category=New.title;
     this.filteredList_3 = New.do3;
     this.filteredList_1 = New.do1;
@@ -507,17 +517,22 @@ export class RabbanaListPage implements OnInit {
 //Mark
 
 if (this.platform.is('ios') ) {
-  await this.storage.get('BookMarkList').then((res) => {
-      if(res.indexOf(New.title)==-1)
+      await this.storage.get('BookMarkList').then((res) => {
+        if(!res)
+        this.mark=false;
+      else if(res.indexOf(New.title)==-1)
       this.mark=false;
       else
       this.mark=true;
   });
 
  }
- else{
+ else
+ {
  var res=JSON.parse(await  localStorage.getItem('BookMarkList'));
- if(res.indexOf(New.title)==-1)
+ if(!res)
+ this.mark=false;
+ else if(res.indexOf(New.title)==-1)
       this.mark=false;
       else
       this.mark=true;
@@ -582,14 +597,12 @@ console.log('Match'+Match);
 
   playAudio(){
     let duas = this.duasAudio;
-    console.log('duascvvbvcbfgb');
     console.log(duas);
 
     console.log('../../assets/DuasAudio/'+duas);
     
     this.nativeAudio.play('../../assets/DuasAudio/'+duas).then((data) =>{
       console.log(duas+ 'is playing');
-      // alert(duas);
     });
   
   }
