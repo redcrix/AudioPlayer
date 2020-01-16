@@ -45,6 +45,7 @@ export class RabbanaListPage implements OnInit {
   favdata:any=[];
   AllList = [];
   maindata=[];
+  rdata=[];
   category:any;
   currentActive:any;
   //fresh data variable
@@ -191,17 +192,6 @@ export class RabbanaListPage implements OnInit {
 
          
           }
-          // this.category = this.data.title;
-          // this.filteredList_3 = this.data.do3;
-          // this.filteredList_1 = this.data.do1;
-          // this.filteredList_2 = this.data.do2;
-          // this.filteredTitle= this.data.title;
-          // this.copy = true;
-          // this.duasAudio= this.data.duasAudio;
-          // this.mark = this.data.mark;
-          // this.copyX = true;
-          // this.lastCopy = false;
-        
 
           if(this.data){
             
@@ -213,20 +203,8 @@ export class RabbanaListPage implements OnInit {
             console.log(this.duasAudio);
             console.log(this.data.duasAudio);
             console.log(this.AllList);
-             
-              
-
+                         
               console.log('.'+this.AllList);
-          //     setTimeout( () => {
-          //       this.FilterData();
-          //  }, 4000);
-         
-
-            // });
-             
-           
-      //     }
-
    
       }
 
@@ -248,13 +226,14 @@ export class RabbanaListPage implements OnInit {
     
    }
 
-  ngOnInit() {
-
+async  ngOnInit() {
+console.log("sadsdsdsdAWE")
       this.route.queryParams.subscribe(params => {
         this.Check({'title':params.current});
+        this.recentlyViewed({'title':params.current});
       });
-
       
+     
     
 
     this.prepareAudioFile();
@@ -504,7 +483,6 @@ export class RabbanaListPage implements OnInit {
 
  async Check(New){
 
-  console.log(this.searchList);
    this.listShow=false;
     this.category=New.title;
     this.filteredList_3 = New.do3;
@@ -656,18 +634,6 @@ checkEXTRA(){
 
 
 
-// async segmentChanged(event) {
-//   await this.slides.slideTo(this.segment);
-//   this.slides.update();
-
-//   this.Check(this.AllList[data]);
-
-// }
-
-
-
-
-
  async slideChanged(category) {
 
  
@@ -678,17 +644,51 @@ checkEXTRA(){
     
      console.log(this.AllList[data]);
 
-
+     this.recentlyViewed(this.AllList[data]);
 
      this.prepareAudioFile();
 this.segMeChange = data;
-console.log('ACTIVE INDEX = '+this.segMeChange);
+
     this.Check(this.AllList[data]);
     this.focusSegment(this.segMeChange);
   });
 
  
 
+  }
+
+
+  async recentlyViewed(x){
+    if (this.platform.is('ios') ) {
+      await this.storage.get('Recentv').then((res) => {
+       if(!res)
+         this.rdata=[];
+       else
+       this.rdata=res;
+      });
+
+
+      if(this.rdata.indexOf(x.title)==-1)
+      this.rdata.push(x.title);
+      if(this.rdata.length>10){
+        this.rdata.shift();
+        }
+      this.storage.set('Recentv',this.rdata);
+     }
+     else{
+     var res=JSON.parse(await  localStorage.getItem('Recentv'));
+     if(!res)
+     this.rdata=[];
+     else
+     this.rdata=res;
+ 
+      if(this.rdata.indexOf(x.title)==-1)
+      this.rdata.push(x.title);
+      if(this.rdata.length>10){
+        this.rdata.shift();
+        }
+     localStorage.setItem('Recentv',JSON.stringify(this.favdata));
+     }
   }
 
 

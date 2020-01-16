@@ -3,16 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-
-
 import { IonicModule } from '@ionic/angular';
 
-import { FavouritesPage } from './favourites.page';
+import { RecentlyviewedPage } from './recentlyviewed.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: FavouritesPage
+    component: RecentlyviewedPage
   }
 ];
 
@@ -23,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [FavouritesPage]
+  declarations: [RecentlyviewedPage]
 })
-export class FavouritesPageModule {}
+export class RecentlyviewedPageModule {}

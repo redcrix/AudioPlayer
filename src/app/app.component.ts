@@ -43,6 +43,11 @@ export class AppComponent {
       title: 'Information',
       url: 'list',
       icon: 'list'
+    },
+    {
+      title: 'Recently Viewed',
+      url: 'recentlyviewed',
+      icon: 'list'
     }
   ];
   route: any;

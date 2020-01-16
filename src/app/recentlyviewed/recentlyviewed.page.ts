@@ -3,14 +3,12 @@ import { Storage } from '@ionic/storage';
 import { NavController, Platform } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
 
-
 @Component({
-  selector: 'app-favourites',
-  templateUrl: './favourites.page.html',
-  styleUrls: ['./favourites.page.scss'],
+  selector: 'app-recentlyviewed',
+  templateUrl: './recentlyviewed.page.html',
+  styleUrls: ['./recentlyviewed.page.scss'],
 })
-export class FavouritesPage implements OnInit {
-
+export class RecentlyviewedPage implements OnInit {
   LocalStorage_: any[];
 
   constructor(private storage: Storage, public navCtrl: NavController,   public platform: Platform) {
@@ -20,14 +18,14 @@ export class FavouritesPage implements OnInit {
     // Work on iOS / Android / Browser
     if (this.platform.is('ios') ) {
     
-    this.storage.get('BookMarkList').then((res) => {
+    this.storage.get('Recentv').then((res) => {
     
 
      this.LocalStorage_= res; 
 
     });}
     else{
-      let VA = JSON.parse(localStorage.getItem("BookMarkList"));
+      let VA = JSON.parse(localStorage.getItem("Recentv"));
    
 
       this.LocalStorage_= VA; 
@@ -43,11 +41,6 @@ export class FavouritesPage implements OnInit {
   ngOnInit() {
   }
 
-  clear(){
-    this.storage.clear();
-    localStorage.clear();
-    this.LocalStorage_=[];
-  }
   OpenDetail(title){
     let navigationExtras: NavigationExtras = {
       queryParams: {
@@ -56,4 +49,5 @@ export class FavouritesPage implements OnInit {
     }
     this.navCtrl.navigateForward(['rabbana-list'], navigationExtras);
   }
+
 }

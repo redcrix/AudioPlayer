@@ -1,18 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>favourites</ion-title>
+    <ion-title>Recently Viewed</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-button (click)="clear()">Clear</ion-button>
-
   <ion-list>
     <ion-item *ngFor="let a of LocalStorage_" (click)="OpenDetail(a)">
       <ion-label>{{a}}</ion-label>
     </ion-item>
-  </ion-list>
-
+</ion-list>
 
 </ion-content>

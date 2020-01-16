@@ -1,7 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { RemoteServiceService } from './../remote-service.service';
-
 import { Router, NavigationExtras } from '@angular/router';
 import { AnimationService, AnimationBuilder } from 'css-animator';
 
@@ -49,7 +48,6 @@ url = './rabannas_data.json';
   }
 
   OpenDetail(a){
-    console.log(a.title);
     let navigationExtras: NavigationExtras = {
       queryParams: {
         current: a.title

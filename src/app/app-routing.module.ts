@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'rabbana-list', loadChildren: './rabbana-list/rabbana-list.module#RabbanaListPageModule' },
   { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
   { path: 'favourites', loadChildren: './favourites/favourites.module#FavouritesPageModule' },
-  { path: 'about-us', loadChildren: './about-us/about-us.module#AboutUsPageModule' }
+  { path: 'about-us', loadChildren: './about-us/about-us.module#AboutUsPageModule' },
+  { path: 'recentlyviewed', loadChildren: './recentlyviewed/recentlyviewed.module#RecentlyviewedPageModule' }
 ];
 
 @NgModule({
