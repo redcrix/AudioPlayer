@@ -15,17 +15,61 @@
 <ion-content>
 
   <ion-list>
-    <ion-item>
-      <ion-label>Day Theme</ion-label>
-      <ion-toggle [(ngModel)]="mode" (ionChange)="cycleTheme()"></ion-toggle>
+    <ion-item class="xl_">
+      <ion-label>Night Theme</ion-label>
+      <ion-toggle [checked]="CheckTogg" [(ngModel)]="CheckTogg2" (ionChange)="cycleTheme()"></ion-toggle>
     </ion-item>
 
-    <ion-item>
+ 
+
+    <!-- <ion-item class="xl_"> 
       <ion-label>Night Mode</ion-label>
       <ion-toggle [(ngModel)]="mode2" (ionChange)="setTheme()"></ion-toggle>
-    </ion-item>
+    </ion-item> -->
 
     </ion-list>
+
+    <div class="Items">
+
+      <div class="xl_list">
+        <p class="L_">
+          <span class="xl_pos">
+          <ion-icon name="share" class="xl_icon"></ion-icon>
+        </span>
+          Share the app
+        </p>
+
+        <p class="L_">
+          <span class="xl_pos">
+          <ion-icon name="star-half"  class="xl_icon"></ion-icon>
+        </span>
+          Rate the app
+        </p>
+
+        <p class="L_">
+          <span class="xl_pos">
+          <ion-icon name="logo-twitter" class="xl_icon"></ion-icon>
+        </span>
+          Follow us on Twitter
+        </p>
+
+        <p class="L_">
+          <span class="xl_pos">
+          <ion-icon name="logo-facebook" class="xl_icon"></ion-icon>
+        </span>
+          Like us on Facebook
+        </p>
+
+        <p class="L_">
+          <span class="xl_pos">
+          <ion-icon name="contact" class="xl_icon"></ion-icon>
+        </span>
+          Contact us
+        </p>
+
+      </div>
+      
+    </div>
 
 
 </ion-content>

@@ -142,23 +142,23 @@ export class RabbanaListPage implements OnInit {
      ) {
 
     
-      this.platform.ready().then(() => {
-        // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
-        if(!this.platform.is('cordova')) {
-          return false;
-        }
+      // this.platform.ready().then(() => {
+      //   // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
+      //   if(!this.platform.is('cordova')) {
+      //     return false;
+      //   }
   
-        if (this.platform.is('ios')) {
-          this.storageDirectory = cordova.file.documentsDirectory;
-        }
-        else if(this.platform.is('android')) {
-          this.storageDirectory = cordova.file.externalDataDirectory;
-        }
-        else {
-          // exit otherwise, but you could add further types here e.g. Windows
-          return false;
-        }
-      })
+      //   if (this.platform.is('ios')) {
+      //     this.storageDirectory = cordova.file.documentsDirectory;
+      //   }
+      //   else if(this.platform.is('android')) {
+      //     this.storageDirectory = cordova.file.externalDataDirectory;
+      //   }
+      //   else {
+        
+      //     return false;
+      //   }
+      // })
   
 
       this.remoteServiceService.getListing().subscribe(res => {
@@ -779,8 +779,8 @@ this.segMeChange = data;
   }
 
   async changetm(){
-
-  
+    this.router.navigate(['recentlyviewed']);
+    
 
     
     // this.Cal_View = true;
@@ -808,12 +808,12 @@ this.segMeChange = data;
   // buttonColor: string = 'black'; //Default Color
 
 
-  this.LocalNotifications.schedule({
-    text: 'I will remind you.',
-    trigger: {at: new Date(new Date().getTime() + 3600)},
-    led: 'FF0000',
-    sound: null
-  });
+  // this.LocalNotifications.schedule({
+  //   text: 'I will remind you.',
+  //   trigger: {at: new Date(new Date().getTime() + 3600)},
+  //   led: 'FF0000',
+  //   sound: null
+  // });
 
 // this.localNotifications.schedule({
 //   id: 1,
