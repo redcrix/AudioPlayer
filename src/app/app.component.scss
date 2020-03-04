@@ -28,10 +28,13 @@ ion-menu > .item-native{
 }
 
 ion-content {
-    --ion-background-color:#eff0f7;
+    --ion-background-color:#eaeaea;
 }
 ion-title.title-default.hydrated {
-    color: #2ed4ca;
+
+    color: #fff;
+    background: #042241;
+    height: 63px;
 }
 ion-menu-button.hydrated {
     color: #fff;

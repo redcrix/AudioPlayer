@@ -3,6 +3,11 @@ ion-menu-button.hydrated {
     margin-top: -2px;
     font-size: 39px;
 }
+
+ion-content {
+  --ion-background-color: #042241 !important;
+}
+
 .Box {
     background: #FEFCD1;
     padding: 1px;
@@ -26,6 +31,7 @@ ion-menu-button.hydrated {
 
 .welcome-card {
     padding: 14px;
+    background: white;
 }
 
 p.T_1 {
@@ -100,7 +106,7 @@ ion-item.item-label.item.md.ion-focusable.hydrated {
 ion-label.sc-ion-label-md-h {
     font-family: Gotham;
     font-weight: bold;
-    color: #2ed4ca;
+    color: #042241;
 }
 
 .containerX{
@@ -133,15 +139,15 @@ ion-segment-button.Ct_btn {
 }
 // #8993c9
 ion-toolbar{
-    --background: #2ed4ca !important;
+    --background: #042241 !important;
     color: white;
 }
 
 ion-segment{
   --border-color: white;
-    --background: #2ed4ca !important;
-    --background-hover: #2ed4ca !important;
-    --background-checked: #2ed4ca;
+    --background: #042241 !important;
+    --background-hover: #042241 !important;
+    --background-checked: #042241;
 }
 
 ion-header{
@@ -163,7 +169,7 @@ ion-item{
 ion-label {
     font-family: Gotham;
     font-weight: bold;
-    color: #2ed4ca;
+    color: #042241;
     text-shadow: 1px 1px 1px grey;
 }
 
@@ -194,7 +200,7 @@ span.ttl_icn {
 }
 ion-segment-button.Ct_btn.hydrated.segment-button-checked.segment-button-layout-icon-top.ion-activatable.ion-activatable-instant {
     background-color: white;
-    color: #2ed4ca !important;
+    color: #042241 !important;
     font-weight: 600;
 }
 ion-icon.shr-icn {    .swiper-slide {
@@ -203,22 +209,22 @@ ion-icon.shr-icn {    .swiper-slide {
       display: block;
     }
     font-size: 32px;
-    color: #2ed4ca;
+    color: #042241;
     margin-top: 10px;
 }
 ion-icon.str-icn {
     font-size: 32px;
-    color: #2ed4ca;
+    color: #042241;
     float: right;
     margin-top: 10px;
 } 
 ion-label.accord_hd {
-    color: #2ed4ca;
+    color: #042241;
     font-weight: 500;
     text-shadow: none;
 }
 ion-icon.arrow_ {
-    color: #2ed4ca;
+    color: #042241;
     font-weight: 600;
 }
 ion-col.iccn-coll {
@@ -232,7 +238,7 @@ ion-searchbar.srch_clbar {
     padding-bottom: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
-    --placeholder-color: #23a59c;
+    --placeholder-color: #042241;
     --background: #fff;
     --color: #6f6f6f;
 }
@@ -414,13 +420,12 @@ ion-icon.dnld_file {
 }
 
 ion-footer ion-toolbar:first-child {
-  --border-width: 25.55px 0 0;
   --border-color: white;
-  --background: #2dd3c9 !important;
+  --background: #042241 !important;
 }
 
 .outer_button{
-  background: #2ed4ca;
+  background: #042241;
   border-radius: 3em 3em;
   /* border: solid; */
   width: 81px;

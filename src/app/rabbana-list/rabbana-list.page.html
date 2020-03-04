@@ -68,6 +68,8 @@
 
 
 <ion-content >
+
+  <div class="sese">
   <ion-slides  #mySlider  (ionSlideDidChange)="slideChanged(AllList)" class="slideCustom"> 
     
     <ion-slide *ngFor="let category of AllList" >
@@ -99,7 +101,7 @@
               <ion-col size="8">
                   <div class="Box">
                       <p class="p_">
-                        {{category.title}}
+                        {{category.title | slice:8:10}}
                       </p>
                     </div>
               </ion-col>
@@ -235,7 +237,7 @@
 
 </ion-slides>
 
-
+</div>
 
 
 

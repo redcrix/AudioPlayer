@@ -26,35 +26,37 @@ export class ThemeSwitcherService {
       {
         name: 'day',
         styles: [
-          { themeVariable: '--ion-color-primary', value: '#28b9b1'},
-          { themeVariable: '--ion-color-primary-rgb', value: '56, 128, 255'},
-          { themeVariable: '--ion-color-primary-contrast', value: '#ffffff'},
-          { themeVariable: '--ion-color-primary-contrast-rgb', value: '255,255,255'},
-          { themeVariable: '--ion-color-primary-shade', value: '#3171e0'},
-          { themeVariable: '--ion-color-primary-tint', value: '#0cd1e8'},
-          { themeVariable: '--ion-item-ios-background-color', value: '#ffffff'},
-          { themeVariable: '--ion-item-md-background-color', value: '#ffffff'},
-          { themeVariable: '--ion-tabbar-background-color', value: '#fff'},
-          { themeVariable: '--ion-tabbar-ios-text-color-active', value: '#ffffff'},
-          { themeVariable: '--ion-tabbar-md-text-color-active', value: '#ffffff'},
-          { themeVariable: '--ion-background-color', value: '#28b9b1'}
+          { themeVariable: '--ion-color-primary', value: '#042241'},
+          { themeVariable: '--ion-color-primary-rgb', value: '#d33939'},
+          // { themeVariable: '--ion-color-primary-rgb', value: '56, 128, 255'},
+          // { themeVariable: '--ion-color-primary-contrast', value: '#ffffff'},
+          // { themeVariable: '--ion-color-primary-contrast-rgb', value: '255,255,255'},
+          // { themeVariable: '--ion-color-primary-shade', value: '#3171e0'},
+          // { themeVariable: '--ion-color-primary-tint', value: '#0cd1e8'},
+          // { themeVariable: '--ion-item-ios-background-color', value: '#ffffff'},
+          // { themeVariable: '--ion-item-md-background-color', value: '#ffffff'},
+          // { themeVariable: '--ion-tabbar-background-color', value: '#fff'},
+          // { themeVariable: '--ion-tabbar-ios-text-color-active', value: '#ffffff'},
+          // { themeVariable: '--ion-tabbar-md-text-color-active', value: '#ffffff'},
+          { themeVariable: '--cust', value: '#d33939'},
+          { themeVariable: '--ion-background-color', value: '#fff'}
         ]
       },
       {
         name: 'night',
         styles: [
-          { themeVariable: '--ion-color-primary', value: '#222428'},
-          { themeVariable: '--ion-color-primary-rgb', value: '34,34,34'},
-          { themeVariable: '--ion-color-primary-contrast', value: '#ffffff'},
-          { themeVariable: '--ion-color-primary-contrast-rgb', value: '255,255,255'},
-          { themeVariable: '--ion-color-primary-shade', value: '#1e2023'},
-          { themeVariable: '--ion-color-primary-tint', value: '#383a3e'},
-          { themeVariable: '--ion-item-ios-background-color', value: '#717171'},
-          { themeVariable: '--ion-item-md-background-color', value: '#717171'},
-          { themeVariable: '--ion-tabbar-background-color', value: '#222428'},
+          { themeVariable: '--ion-color-primary', value: '#fff'},
+          { themeVariable: '--ion-color-primary-rgb', value: '#d33939'},
+          // { themeVariable: '--ion-color-primary-contrast', value: '#ffffff'},
+          // { themeVariable: '--ion-color-primary-contrast-rgb', value: '255,255,255'},
+          // { themeVariable: '--ion-color-primary-shade', value: '#1e2023'},
+          // { themeVariable: '--ion-color-primary-tint', value: '#383a3e'},
+          // { themeVariable: '--ion-item-ios-background-color', value: '#717171'},
+          // { themeVariable: '--ion-item-md-background-color', value: '#717171'},
+          { themeVariable: '--cust', value: '#d33939'},
           { themeVariable: '--ion-tabbar-ios-text-color-active', value: '#ffffff'},
           { themeVariable: '--ion-tabbar-md-text-color-active', value: '#ffffff'},
-          { themeVariable: '--ion-background-color', value: '#383838'}
+          { themeVariable: '--ion-background-color', value: '#042241'}
         ]
       }
     ]

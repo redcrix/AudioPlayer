@@ -23,7 +23,7 @@ ion-toolbar.in-toolbar.md.toolbar-title-default.hydrated {
 }
 
 h3.title_ {
-  color: #2ed4ca;
+  color: #042241;
   font-family: Gotham;
   font-weight: bold;
   font-size: 18px;
@@ -60,7 +60,7 @@ ion-card.welcome_card{
 }
 
 ion-toolbar{
-  --background: #2ed4ca !important;
+  --background: #042241 !important;
 }
 
 
@@ -83,7 +83,9 @@ ion-card-content.crd_cnt {
 .Cate__ {
   padding: 40px;
 }
-
+ion-content {
+  --ion-background-color: #042241 !important;
+}
 
 
 .category_content {
@@ -92,7 +94,7 @@ ion-card-content.crd_cnt {
 }
 
 button.p__ {
-  background: #2ed4ca;
+  background: #042241;
   padding: 12px;
   color: white;
   font-size: 16px;
