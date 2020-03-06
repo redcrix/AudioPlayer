@@ -70,7 +70,7 @@
 <ion-content >
 
   <div class="sese">
-  <ion-slides  #mySlider  (ionSlideDidChange)="slideChanged(AllList)" class="slideCustom"> 
+  <ion-slides  #mySlider  (ionSlideDidChange)="slideChanged()" class="slideCustom"> 
     
     <ion-slide *ngFor="let category of AllList" >
 
@@ -79,8 +79,14 @@
   
 
     <ion-card class="welcome-card">
+      <p class="p_B">
+        {{category.title | slice:8:10}}
+      </p>
+
       <div class="padding_Top">
-   
+
+      
+
         <ion-range min="0" max="{{duration}}" [(ngModel)]="position" color="light">
         </ion-range>
         <div class="rangePlaytime">
@@ -95,14 +101,12 @@
   -->
 
   <!-- <button (click)="checkBookMark()">checkBookMark</button> -->
-        <ion-grid>
+        <!-- <ion-grid>
             <ion-row>
               <ion-col size="2" class="shr-col"><ion-icon class="shr-icn" (click)="share(category)" name="share"></ion-icon></ion-col>
               <ion-col size="8">
                   <div class="Box">
-                      <p class="p_">
-                        {{category.title | slice:8:10}}
-                      </p>
+                     
                     </div>
               </ion-col>
               <ion-col size="2" class="str-col">
@@ -111,7 +115,7 @@
               
               </ion-col>
             </ion-row>
-        </ion-grid>
+        </ion-grid> -->
 
      
       <div class="tran_1">
@@ -258,17 +262,17 @@
     <div class="sub_header" style="margin-left: 0;">
 
         <ion-row justify-content-center align-items-center style="height: 70px">
-            <!-- <ion-col size="2">
+            <ion-col size="2">
               <div class="flexRow">
                 <div class="start-leftright">
                   <ion-button fill="clear" color="light">
-                      <ion-icon class="Iconsize_For_Rev" *ngIf="!mark" name="star-outline" (click)="starItem(category)"></ion-icon>
-                  <ion-icon class="Iconsize_For_Rev" *ngIf="mark" name="star" (click)="starItem(category)"></ion-icon>
-            
+             
+                    <ion-icon class="shr-icn" (click)="share(category)" name="share"></ion-icon>
+
                   </ion-button>
                 </div>
               </div>
-            </ion-col> -->
+            </ion-col>
 
             <ion-col size="8" style="padding-left: 28px;" >
               <div class="flexRow"> 
@@ -298,15 +302,20 @@
               </div>
             </ion-col>
             
-            <!-- <ion-col size="2">
-              <div class="flexRow">  -->
+            <ion-col size="2">
+              <div class="flexRow"> 
+
+                <ion-icon class="str-icn" *ngIf="!mark" name="star-outline" (click)="starItem(category,true)"></ion-icon>
+                <ion-icon class="str-icn" *ngIf="mark" name="star" (click)="starItem(category,false)"></ion-icon>
+              
+
                       <!-- <div>
                         <ion-button fill="clear" color="light" (click)="DownloadFile()">
                             <ion-icon class="dnld_file" name="download"></ion-icon>
                         </ion-button>
                       </div> -->
-              <!-- </div>
-            </ion-col> -->
+               </div>
+            </ion-col> 
           </ion-row>
 
 

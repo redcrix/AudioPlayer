@@ -209,14 +209,15 @@ ion-icon.shr-icn {    .swiper-slide {
       display: block;
     }
     font-size: 32px;
-    color: #042241;
     margin-top: 10px;
+    margin-left: 16px;
+    margin-top: -6px;
 }
 ion-icon.str-icn {
-    font-size: 32px;
-    color: #042241;
+  font-size: 32px;
     float: right;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-left: 43px;
 } 
 ion-label.accord_hd {
     color: #042241;
@@ -434,4 +435,17 @@ ion-footer ion-toolbar:first-child {
 
 .start-leftright{
   transform: translateY(10px);
+}
+
+p.p_B {
+  float: right;
+  margin-top: -9px;
+  background: #042241 !important;
+  color: white;
+  border-radius: 37px;
+  height: 30px;
+  width: 33px;
+  padding-top: 5px;
+  font-weight: bold;
+  margin-right: -10px;
 }

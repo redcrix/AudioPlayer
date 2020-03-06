@@ -566,11 +566,14 @@ export class RabbanaListPage implements OnInit {
 async  ngOnInit() {
 console.log("sad==================================sdsdsdAWE")
       this.route.queryParams.subscribe(params => {
+        console.log("HAPPY============"+params.current)
         this.Check({'title':params.current});
         this.recentlyViewed({'title':params.current});
       });
       
-     
+
+  
+      // this.curr_playing_file.stop();
     
 
     this.prepareAudioFile();
@@ -662,7 +665,9 @@ console.log("sad==================================sdsdsdAWE")
           } else {
             // update position for display
             self.position = position;
-            this.display_position = this.toHHMMSS(self.position);
+            console.log('self.positionself.positionself.positionself.positionself.positionself.position'+self.position);
+            
+            this.display_position = this.toHHMMSS(6);
           }
         } else if (position >= self.duration) {
           self.stop();
@@ -820,6 +825,9 @@ console.log("sad==================================sdsdsdAWE")
 
  async Check(New){
 
+  console.log('HAPPY 2'+JSON.stringify(New));
+  
+
    this.listShow=false;
     this.category=New.title;
     this.filteredList_3 = New.do3;
@@ -847,35 +855,46 @@ if (this.platform.is('ios') ) {
 
   console.log('1=========================');
   
- var res=JSON.parse(await  localStorage.getItem('BookMarkList'));
+ var res=JSON.parse(localStorage.getItem('BookMarkList'));
  if(!res)
  this.mark=false;
  else if(res.indexOf(New.title)==-1)
       this.mark=false;
       else
       this.mark=true;
+
+
+      //
+
+  
+//
+
  }
 
-//mark
+ console.log('2=========================');
+ console.log(this.AllList);
+ 
 
-console.log('2=========================');
-  
-
-    this.copyX = true;
-    this.lastCopy = false;
-    this.currentActive=New.title;
-    console.log('segment Before'+this.segment);
-    
-    var matches=this.currentActive.match(/(\d+)/);
-    console.log('matches'+matches);
-    var x = 1;
-    var negX = ( -x );
-    
-    this.slides.slideTo(matches[0]-1);
+   this.copyX = true;
+   this.lastCopy = false;
+   this.currentActive=New.title;
+   console.log('segment Before'+this.segment);
+   
+   var matches=this.currentActive.match(/(\d+)/);
+   console.log('matches'+matches);
+   var x = 1;
+   var negX = ( -x );
+   
+   this.slides.slideTo(matches[0]-1);
 console.log(matches+negX);
 
 var Match = matches+(negX);
 console.log('Match'+Match);
+
+
+//mark
+
+
 // this.Check(New);
     // this.slides.slideTo(matches+negX);
   // this.slides.update();
@@ -975,20 +994,20 @@ checkEXTRA(){
 
 
 
- async slideChanged() {
+slideChanged() {
 
  
 
    this.slides.getActiveIndex().then(data=>{
 
-  
-    
      console.log(this.AllList[data]);
 
      this.recentlyViewed(this.AllList[data]);
 
      this.prepareAudioFile();
 this.segMeChange = data;
+
+console.log(this.AllList[data]);
 
     this.Check(this.AllList[data]);
     this.focusSegment(this.segMeChange);
@@ -1035,38 +1054,38 @@ this.segMeChange = data;
 
 
 
-  categoryChanged(value) {
+  // categoryChanged(value) {
     
-    this.stop();
-    this.prepareAudioFile();
+  //   this.stop();
+  //   this.prepareAudioFile();
 
-    console.log('segment is 55', JSON.stringify(value['detail']['value']));
+  //   console.log('segment is 55', JSON.stringify(value['detail']['value']));
  
    
-      if (this.platform.is('ios') ) {
+  //     if (this.platform.is('ios') ) {
 
-    this.storage.get('BookMarkList').then((val) => {
-      this.maindata=val;
-      console.log(val.indexOf(this.duasAudio));
-      if(this.maindata.indexOf(this.duasAudio)>=0){
-        this.mark=true;
-      }
-      else{
-        this.mark=false;
-      }
-        }); 
-      }
-      else{
-        var vallocal=localStorage.getItem('BookMarkList');
+  //   this.storage.get('BookMarkList').then((val) => {
+  //     this.maindata=val;
+  //     console.log(val.indexOf(this.duasAudio));
+  //     if(this.maindata.indexOf(this.duasAudio)>=0){
+  //       this.mark=true;
+  //     }
+  //     else{
+  //       this.mark=false;
+  //     }
+  //       }); 
+  //     }
+  //     else{
+  //       var vallocal=localStorage.getItem('BookMarkList');
     
-        if(vallocal.indexOf(this.duasAudio)>=0){
-          this.mark=true;
-        }
-        else{
-          this.mark=false;
-        }
-      }
-  }
+  //       if(vallocal.indexOf(this.duasAudio)>=0){
+  //         this.mark=true;
+  //       }
+  //       else{
+  //         this.mark=false;
+  //       }
+  //     }
+  // }
 
 
 
