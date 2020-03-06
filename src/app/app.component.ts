@@ -105,7 +105,7 @@ export class AppComponent {
 
     setTimeout(()=>{    
       this.router.navigate([x]);
-      }, 2000);
+      }, 0);
 
  
 
