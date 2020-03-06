@@ -455,7 +455,7 @@ url = './rabannas_data.json';
   }
 
   OpenDetail(a){
-    console.log(a.title);
+    console.log(a);
     
     let navigationExtras: NavigationExtras = {
       queryParams: {

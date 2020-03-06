@@ -576,7 +576,6 @@ console.log("sad==================================sdsdsdAWE")
       // this.curr_playing_file.stop();
     
 
-    this.prepareAudioFile();
 
   }
 
@@ -618,7 +617,7 @@ console.log("sad==================================sdsdsdAWE")
 
           clearInterval(self.get_duration_interval);
           this.display_duration = this.toHHMMSS(self.duration);
-          self.setToPlayback();
+          // self.setToPlayback();
         }
       }
     }, 100);
@@ -652,6 +651,7 @@ console.log("sad==================================sdsdsdAWE")
   }
 
   getAndSetCurrentAudioPosition() {
+    console.log('inside ')
     const diff = 1;
     const self = this;
     this.get_position_interval = setInterval(() => {
@@ -671,7 +671,7 @@ console.log("sad==================================sdsdsdAWE")
           }
         } else if (position >= self.duration) {
           self.stop();
-          self.setToPlayback();
+          // self.setToPlayback();
         }
       });
     }, 100);
@@ -826,10 +826,19 @@ console.log("sad==================================sdsdsdAWE")
  async Check(New){
 
   console.log('HAPPY 2'+JSON.stringify(New));
-  
 
+  setTimeout(() => {
+    this.prepareAudioFile();
+  }, 2000)
+  
+  this.AllList.forEach( el => {
+    if(el.title === New.title) {
+      this.category = el;
+    }
+  })
+  console.log(New.title);
    this.listShow=false;
-    this.category=New.title;
+    // this.category=New.title;
     this.filteredList_3 = New.do3;
     this.filteredList_1 = New.do1;
     this.filteredList_2 = New.do2;

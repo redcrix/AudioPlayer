@@ -32,15 +32,15 @@
   
 
     <ion-card class="welcome_card" *ngFor="let a of items" (click)="OpenDetail(a)">
-        <h3 class="title_">{{a.title}}</h3>
+        <h3 class="title_">{{a?.title}}</h3>
       <ion-card-header class="crd_headr">
       
-        <ion-card-title class="title_c">{{a.do1}}</ion-card-title>
+        <ion-card-title class="title_c">{{a?.do1}}</ion-card-title>
         <!-- <ion-icon class="str-icn" name="star" *ngIf="Book_M.some(e => e.title === a.title)"></ion-icon> -->
 
       </ion-card-header>
       <ion-card-content class="crd_cnt">
-        <p class="Dual">{{a.do2}}</p>
+        <p class="Dual">{{a?.do2}}</p>
       </ion-card-content>
     </ion-card>
    
