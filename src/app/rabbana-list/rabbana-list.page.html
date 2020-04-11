@@ -52,7 +52,7 @@
       <!-- <ion-segment [(ngModel)]="category"  (ionChange)="segmentChanged($event)" scrollable> -->
         <ion-segment  scrollable [(ngModel)]="category"  >
         <div *ngFor="let category of AllList; let i = index" >      
-        <ion-segment-button class="Ct_btn"  *ngIf="category.title == currentActive" id="seg-{{i}}" checked value={{category.title}} (click)="Check(category)">
+        <ion-segment-button class="Ct_btn__"  *ngIf="category.title == currentActive" id="seg-{{i}}" checked value={{category.title}} (click)="Check(category)">
             {{category.title}}
         </ion-segment-button>
         <ion-segment-button class="Ct_btn"   *ngIf="category.title !== currentActive" id="seg-{{i}}" value={{category.title}} (click)="Check(category)">
@@ -82,20 +82,6 @@
       <p class="p_B">
         {{category.title | slice:8:10}}
       </p>
-
-      <div class="padding_Top">
-
-      
-
-        <ion-range min="0" max="{{duration}}" [(ngModel)]="position" color="light">
-        </ion-range>
-        <div class="rangePlaytime">
-          <ion-label class="startTime" color="light">{{ display_position }}</ion-label>
-          <ion-label class="endTime" color="light" *ngIf="duration == -1">--:--</ion-label>
-          <ion-label class="endTime" color="light" *ngIf="duration != -1">{{ display_duration }}</ion-label>
-        </div>
-    
-      </div>
 
       <!-- <p class="Statement" *ngIf="ShowPlay">Playing ...</p>
   -->
@@ -256,6 +242,22 @@
 
 
   <ion-toolbar class="my-rabbana-color my-style-ra" [ngStyle]="{'background-color': buttonColor}">
+
+
+    <div class="padding_Top">
+
+      
+
+      <ion-range min="0" max="{{duration}}" [(ngModel)]="position" color="light">
+      </ion-range>
+      <div class="rangePlaytime">
+        <ion-label class="startTime" color="light">{{ display_position }}</ion-label>
+        <ion-label class="endTime" color="light" *ngIf="duration == -1">--:--</ion-label>
+        <ion-label class="endTime" color="light" *ngIf="duration != -1">{{ display_duration }}</ion-label>
+      </div>
+  
+    </div>
+    
 
 
 

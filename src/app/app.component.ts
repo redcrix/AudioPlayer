@@ -103,11 +103,13 @@ export class AppComponent {
 
   openAppPages(x){
 
-    setTimeout(()=>{    
-      this.router.navigate([x]);
-      }, 2000);
+    console.log('UPDATE===================');
+    
+    // setTimeout(()=>{    
+    //   this.router.navigate([x]);
+    //   }, 0);
 
- 
-
+    // this.router.navigate(x);
+this.navCtrl.navigateRoot(x);
   }
 }

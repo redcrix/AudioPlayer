@@ -438,7 +438,7 @@ export class RabbanaListPage implements OnInit {
   duration: any = -1;
   curr_playing_file: MediaObject;
   // storageDirectory: any;
- 
+
   position: any = 0;
   get_position_interval: any;
   is_playing = false;
@@ -573,17 +573,26 @@ console.log("sad==================================sdsdsdAWE")
       
 
   
-      // this.curr_playing_file.stop();
+      this.curr_playing_file.stop();
     
 
-    this.prepareAudioFile();
+      // setTimeout(() => {
+      //   this.prepareAudioFile();
+      // }, 2000)
 
   }
 
   prepareAudioFile() {
+    this.display_position = '00:00';
+    this.display_duration  = '00:00';
+    this.position = 0;
+
     this.platform.ready().then((res) => {
       this.getDuration();
+    
     });
+
+    
   }
 
 
@@ -652,6 +661,7 @@ console.log("sad==================================sdsdsdAWE")
   }
 
   getAndSetCurrentAudioPosition() {
+    console.log('inside ')
     const diff = 1;
     const self = this;
     this.get_position_interval = setInterval(() => {
@@ -667,11 +677,11 @@ console.log("sad==================================sdsdsdAWE")
             self.position = position;
             console.log('self.positionself.positionself.positionself.positionself.positionself.position'+self.position);
             
-            this.display_position = this.toHHMMSS(6);
+            this.display_position = this.toHHMMSS(self.position);
           }
         } else if (position >= self.duration) {
           self.stop();
-          self.setToPlayback();
+          // self.setToPlayback();
         }
       });
     }, 100);
@@ -826,10 +836,17 @@ console.log("sad==================================sdsdsdAWE")
  async Check(New){
 
   console.log('HAPPY 2'+JSON.stringify(New));
-  
 
+ 
+  
+  this.AllList.forEach( el => {
+    if(el.title === New.title) {
+      this.category = el;
+    }
+  })
+  console.log(New.title);
    this.listShow=false;
-    this.category=New.title;
+    // this.category=New.title;
     this.filteredList_3 = New.do3;
     this.filteredList_1 = New.do1;
     this.filteredList_2 = New.do2;
@@ -1197,7 +1214,7 @@ console.log(this.AllList[data]);
     this.platform.ready().then(() => {
 
       const imageLocation = `${cordova.file.applicationDirectory}www/assets/DuasAudio/${duas}`;
-alert('imageLocation'+imageLocation);
+// alert('imageLocation'+imageLocation);
       this.fileTransfer.download(imageLocation, this.storageDirectory + duas).then((entry) => {
 
         alert('Downloaded successfully.'+JSON.stringify(entry));

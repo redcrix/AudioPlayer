@@ -9,13 +9,17 @@
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let a of appPages">
-            <ion-item class="item_nav" >
+            <ion-item class="item_nav" (click)="openAppPages(a.url)">
 
-                <ion-card class="my-card" (click)="openAppPages(a.url)">
+              <div class="box_" >
+                <button class="app_ttl" >{{a.title}}</button>
+              </div>
+
+                <!-- <ion-card class="my-card" >
                     <ion-card-header class="app_crd_hdr" >
-                      <ion-card-title class="app_ttl" style="display: inherit" >{{a.title}}</ion-card-title>
+                      <ion-card-title class="app_ttl" style="display: inherit" ></ion-card-title>
                     </ion-card-header>
-                  </ion-card>
+                  </ion-card> -->
 
             </ion-item>
           </ion-menu-toggle>
