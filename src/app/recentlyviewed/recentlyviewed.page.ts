@@ -31,6 +31,10 @@ export class RecentlyviewedPage implements OnInit {
       this.LocalStorage_= VA; 
     }
 
+
+    console.log(this.LocalStorage_);
+    
+
     
 
 

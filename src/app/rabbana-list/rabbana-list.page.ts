@@ -1064,7 +1064,7 @@ console.log(this.AllList[data]);
       if(this.rdata.length>10){
         this.rdata.shift();
         }
-     localStorage.setItem('Recentv',JSON.stringify(this.favdata));
+     localStorage.setItem('Recentv',JSON.stringify(this.rdata));
      }
   }
 
