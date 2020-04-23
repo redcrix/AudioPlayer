@@ -40,15 +40,15 @@ export class AppComponent {
       icon: 'list'
     },
     {
-      title: 'Information',
+      title: 'More information',
       url: 'list',
       icon: 'list'
     },
-    {
-      title: 'Recently Viewed',
-      url: 'recentlyviewed',
-      icon: 'list'
-    }
+    // {
+    //   title: 'Recently Viewed',
+    //   url: 'recentlyviewed',
+    //   icon: 'list'
+    // }
   ];
   route: any;
  

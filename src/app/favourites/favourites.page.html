@@ -9,7 +9,7 @@
 
 <ion-content>
 
-  <ion-button (click)="clear()">Clear</ion-button>
+
 
   <ion-list>
     <ion-item *ngFor="let a of LocalStorage_" (click)="OpenDetail(a)">
@@ -19,3 +19,18 @@
 
 
 </ion-content>
+
+
+<ion-footer style="position: unset !important;">
+
+
+
+
+  <ion-toolbar class="my-rabbana-color my-style-ra" [ngStyle]="{'background-color': buttonColor}">
+
+    <ion-button (click)="clear()" style="    width: 100%;">Clear</ion-button>
+
+
+    </ion-toolbar>
+
+    </ion-footer>

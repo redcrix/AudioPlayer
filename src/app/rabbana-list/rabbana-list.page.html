@@ -26,7 +26,7 @@
      
     </ion-toolbar>
 
-    <ion-toolbar class="srch_tool">
+    <!-- <ion-toolbar class="srch_tool">
       <ion-grid class="srch_grid">
         <ion-row class="srch_gridrw">
           <ion-col class="srch_gridcl">
@@ -42,7 +42,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-    </ion-toolbar>
+    </ion-toolbar> -->
 
 
 
@@ -69,7 +69,7 @@
 
 <ion-content >
 
-  <div class="sese">
+
   <ion-slides  #mySlider  (ionSlideDidChange)="slideChanged()" class="slideCustom"> 
     
     <ion-slide *ngFor="let category of AllList" >
@@ -78,10 +78,21 @@
 
   
 
-    <ion-card class="welcome-card">
-      <p class="p_B">
-        {{category.title | slice:8:10}}
-      </p>
+    <div class="welcome-card">
+
+  
+          <div class="contai" style="display: flex;">
+            <p class="p_B">
+              {{category.title | slice:8:10}}
+            </p>
+    
+          <p class="text_">
+            Surah al-Baqarah v127
+          </p>
+        
+        </div>
+
+
 
       <!-- <p class="Statement" *ngIf="ShowPlay">Playing ...</p>
   -->
@@ -221,14 +232,11 @@
 
 
   
-    </ion-card>
+          </div>
       
   </ion-slide> 
 
 </ion-slides>
-
-</div>
-
 
 
 
@@ -263,7 +271,7 @@
 
     <div class="sub_header" style="margin-left: 0;">
 
-        <ion-row justify-content-center align-items-center style="height: 70px">
+        <ion-row justify-content-center align-items-center>
             <ion-col size="2">
               <div class="flexRow">
                 <div class="start-leftright">
@@ -279,8 +287,8 @@
             <ion-col size="8" style="padding-left: 28px;" >
               <div class="flexRow"> 
                 <div class="start-leftright">
-                  <ion-button fill="clear" color="light"   (click)="Check2()">
-                    <ion-icon name="rewind"></ion-icon>
+                  <ion-button fill="clear" color="light"   >
+                    <!-- <ion-icon name="rewind"></ion-icon> -->
                   </ion-button>
                 </div>
       
@@ -297,8 +305,8 @@
                 </div>
       
                 <div  class="start-leftright">
-                  <ion-button fill="clear" color="light"   (click)="Check3()">
-                    <ion-icon name="fastforward" class="Iconsize_For_Rev"></ion-icon>
+                  <ion-button fill="clear" color="light"   >
+                    <!-- <ion-icon name="fastforward" class="Iconsize_For_Rev"></ion-icon> -->
                   </ion-button>
                 </div>
               </div>

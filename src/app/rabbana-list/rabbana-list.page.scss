@@ -57,7 +57,7 @@ p.T_2 {
   }
 
   .tran_1 {
-    margin-top: 20px;
+    margin-top: 70px;
 }
 
 .tran_3 {
@@ -108,6 +108,20 @@ ion-label.sc-ion-label-md-h {
     font-weight: bold;
     color: #042241;
 }
+
+ion-item.item-label.item.ios.ion-focusable.hydrated {
+  --background: #e4e4e45e;
+  /* padding-bottom: 10px; */
+  /* color: white; */
+
+}
+
+ion-label.sc-ion-label-ios-h {
+  font-family: Gotham;
+  font-weight: bold;
+  color: #042241;
+}
+
 
 .containerX{
     position: relative;
@@ -160,10 +174,16 @@ ion-segment-button{
     padding: 4px 15px;
 }
 
-ion-item{
-    background: -webkit-linear-gradient(top, rgb(218, 215, 215) 0%, rgba(246,246,246,1) 50%, rgba(204,202,204,1) 100%);
-    box-shadow: 0 0 6px 2px;
-    margin-top: 24px;
+ion-item.item-label.item.md.ion-focusable.hydrated {
+  background: -webkit-linear-gradient(top, rgb(218, 215, 215) 0%, rgba(246,246,246,1) 50%, rgba(204,202,204,1) 100%);
+  box-shadow: 0 0 6px 2px;
+  margin-top: 24px;
+}
+
+ion-item.item-label.item.ios.ion-focusable.hydrated {
+  background: -webkit-linear-gradient(top, rgb(218, 215, 215) 0%, rgba(246,246,246,1) 50%, rgba(204,202,204,1) 100%);
+  box-shadow: 0 0 6px 2px;
+  margin-top: 24px;
 }
 
 ion-label {
@@ -393,7 +413,7 @@ ion-icon.dnld_file {
   }
   
   .transparent_Item {
-    --background: transparent;
+    --background: transparent; 
   }
 
   .flexRow {
@@ -402,7 +422,6 @@ ion-icon.dnld_file {
 }
 
 .my-style-ra{
-  height: 84px;
   display: -webkit-box;
 }
 
@@ -417,7 +436,6 @@ ion-icon.dnld_file {
 .footer-ios ion-toolbar:first-child {
   --border-width: 25.55px 0 0;
   --border-color:white;
-  --background: #2dd3c9 !important;
 }
 
 ion-footer ion-toolbar:first-child {
@@ -438,8 +456,7 @@ ion-footer ion-toolbar:first-child {
 }
 
 p.p_B {
-  float: right;
-  margin-top: -9px;
+  margin-top: 12px;
   background: #042241 !important;
   color: white;
   border-radius: 37px;
@@ -447,5 +464,11 @@ p.p_B {
   width: 33px;
   padding-top: 5px;
   font-weight: bold;
-  margin-right: -10px;
+  margin-right: 8px;
+}
+
+.contai {
+  margin-bottom: -50px;
+  text-align: center;
+  vertical-align: middle;
 }
