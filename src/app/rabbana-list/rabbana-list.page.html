@@ -16,8 +16,8 @@
     </ion-title>
           <ion-buttons slot="end">
               <span class="ttl_icn">
-                  <ion-icon class="list_icn" name="home" (click)="DuaListing()"></ion-icon>
-                  <ion-icon class="list_icn" name="clock" (click)="changetm()"></ion-icon>
+                  <ion-icon class="list_icn" color="primary" name="home" (click)="DuaListing()"></ion-icon>
+                  <ion-icon class="list_icn"  color="primary" name="clock" (click)="changetm()"></ion-icon>
                   <!-- <ion-icon class="list_icn" name="search" (click)="srch()"></ion-icon> -->
                   <!-- <ion-icon class="list_icn" name="more" (click)="FilterData()"></ion-icon> -->
                 </span>
@@ -26,25 +26,6 @@
      
     </ion-toolbar>
 
-    <!-- <ion-toolbar class="srch_tool">
-      <ion-grid class="srch_grid">
-        <ion-row class="srch_gridrw">
-          <ion-col class="srch_gridcl">
-            <ion-searchbar class="srch_clbar" [(ngModel)]="searchList" (ionChange)="setFilteredItems()"></ion-searchbar>
-            <ion-list *ngIf="listShow" class="srch_list_ttl">
-                <ion-item scrollX="true" *ngFor="let list of lists" (click)="Check(list)">
-                  {{ list.title }}
-                </ion-item>
-                <ion-item *ngIf="noresulttext">
-                 No results found
-                </ion-item>
-            </ion-list>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-toolbar> -->
-
-
 
   
 
@@ -52,10 +33,10 @@
       <!-- <ion-segment [(ngModel)]="category"  (ionChange)="segmentChanged($event)" scrollable> -->
         <ion-segment  scrollable [(ngModel)]="category"  >
         <div *ngFor="let category of AllList; let i = index" >      
-        <ion-segment-button class="Ct_btn__"  *ngIf="category.title == currentActive" id="seg-{{i}}" checked value={{category.title}} (click)="Check(category)">
+        <ion-segment-button class="Ct_btn__"  color="primary"  *ngIf="category.title == currentActive" id="seg-{{i}}" checked value={{category.title}} (click)="Check(category)">
             {{category.title}}
         </ion-segment-button>
-        <ion-segment-button class="Ct_btn"   *ngIf="category.title !== currentActive" id="seg-{{i}}" value={{category.title}} (click)="Check(category)">
+        <ion-segment-button class="Ct_btn"  color="primary"  *ngIf="category.title !== currentActive" id="seg-{{i}}" value={{category.title}} (click)="Check(category)">
           {{category.title}}
       </ion-segment-button>
       </div>
@@ -94,32 +75,13 @@
 
 
 
-      <!-- <p class="Statement" *ngIf="ShowPlay">Playing ...</p>
-  -->
-
-  <!-- <button (click)="checkBookMark()">checkBookMark</button> -->
-        <!-- <ion-grid>
-            <ion-row>
-              <ion-col size="2" class="shr-col"><ion-icon class="shr-icn" (click)="share(category)" name="share"></ion-icon></ion-col>
-              <ion-col size="8">
-                  <div class="Box">
-                     
-                    </div>
-              </ion-col>
-              <ion-col size="2" class="str-col">
-                <ion-icon class="str-icn" *ngIf="!mark" name="star-outline" (click)="starItem(category,true)"></ion-icon>
-                <ion-icon class="str-icn" *ngIf="mark" name="star" (click)="starItem(category,false)"></ion-icon>
-              
-              </ion-col>
-            </ion-row>
-        </ion-grid> -->
 
      
       <div class="tran_1">
           <ion-item  *ngIf="showMinus1" (click)="Ctrl_version_1()">
               <ion-label>Original verse</ion-label>
               <div class="SH" >
-                  <ion-icon class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
+                  <ion-icon  color="primary" class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
             
               </div>
   
@@ -131,7 +93,7 @@
             <ion-item  *ngIf="showPlus1"  (click)="Ctrl2_version_1()">
                 <ion-label>Original verse</ion-label>
                 <div class="SH"  >
-                    <ion-icon  class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon>
+                    <ion-icon   color="primary" class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon>
              
                 </div>
               
@@ -153,7 +115,7 @@
               <ion-item  *ngIf="showMinus3" (click)="Ctrl_version_3()">
                   <ion-label>Transliteration</ion-label>
                   <div class="SH" >
-                      <ion-icon  class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
+                      <ion-icon  color="primary" class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
                 
                     </div>
                
@@ -162,7 +124,7 @@
                 <ion-item *ngIf="showPlus3" (click)="Ctrl2_version_3()">
                     <ion-label>Transliteration</ion-label>
                     <div class="SH"  >
-                        <ion-icon   class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup" ></ion-icon>
+                        <ion-icon   color="primary" class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup" ></ion-icon>
            
                       </div>
                   </ion-item>
@@ -180,7 +142,7 @@
               <ion-item (click)="Ctrl_version_2()" *ngIf="showMinus2"> 
                 <ion-label>English Translation</ion-label>
                   <div class="SH"  >
-                    <ion-icon  class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
+                    <ion-icon  color="primary" class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
                   </div>
                  
                 </ion-item>
@@ -189,7 +151,7 @@
                     <ion-label>English Translation</ion-label>
                  
                           <div class="SH" >
-                            <ion-icon class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup" (click)="Ctrl2_version_2()"></ion-icon>
+                            <ion-icon  color="primary" class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup" (click)="Ctrl2_version_2()"></ion-icon>
                           </div>
                     </ion-item>
 
@@ -203,7 +165,7 @@
               <ion-item  *ngIf="showMinus4" (click)="Ctrl_version_4()">
                   <ion-label >Chichewa Translation</ion-label>
                   <div class="SH" >
-                      <ion-icon  class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
+                      <ion-icon   color="primary" class="arrow_" ios="ios-arrow-dropdown" md="md-arrow-dropdown" ></ion-icon>
                   
                     </div>
     
@@ -217,7 +179,7 @@
                
       
                        <div class="SH" >
-                          <ion-icon class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup" ></ion-icon>
+                          <ion-icon  color="primary" class="arrow_" ios="ios-arrow-dropup" md="md-arrow-dropup" ></ion-icon>
                
                           </div>
                         
@@ -275,11 +237,11 @@
             <ion-col size="2">
               <div class="flexRow">
                 <div class="start-leftright">
-                  <ion-button fill="clear" color="light">
+                  <!-- <ion-button fill="clear" color="light"> -->
              
-                    <ion-icon class="shr-icn" (click)="share(category)" name="share"></ion-icon>
+                    <ion-icon   class="shr-icn" (click)="share(category)" name="share"></ion-icon>
 
-                  </ion-button>
+                  <!-- </ion-button> -->
                 </div>
               </div>
             </ion-col>
@@ -295,17 +257,17 @@
                 <div class="outer_button">
                   <ion-button class="play_pause_btn" (click)="play()" color="light" *ngIf="!is_playing" justify-content-center
                     [disabled]="!is_ready" align-items-center>
-                    <ion-icon name="play" class="darkColor"></ion-icon>
+                    <ion-icon   color="primary" name="play" class="darkColor"></ion-icon>
                   </ion-button>
       
                   <ion-button class="play_pause_btn" (click)="pause()" color="light" *ngIf="is_playing" justify-content-center
                     [disabled]="!is_ready" align-items-center>
-                    <ion-icon name="pause" class="darkColor"></ion-icon>
+                    <ion-icon   color="primary" name="pause" class="darkColor"></ion-icon>
                   </ion-button>
                 </div>
       
                 <div  class="start-leftright">
-                  <ion-button fill="clear" color="light"   >
+                  <ion-button fill="clear"  color="primary"   >
                     <!-- <ion-icon name="fastforward" class="Iconsize_For_Rev"></ion-icon> -->
                   </ion-button>
                 </div>
@@ -315,8 +277,8 @@
             <ion-col size="2">
               <div class="flexRow"> 
 
-                <ion-icon class="str-icn" *ngIf="!mark" name="star-outline" (click)="starItem(category,true)"></ion-icon>
-                <ion-icon class="str-icn" *ngIf="mark" name="star" (click)="starItem(category,false)"></ion-icon>
+                <ion-icon class="str-icn"  *ngIf="!mark" name="star-outline" (click)="starItem(category,true)"></ion-icon>
+                <ion-icon class="str-icn"  *ngIf="mark" name="star" (click)="starItem(category,false)"></ion-icon>
               
 
                       <!-- <div>

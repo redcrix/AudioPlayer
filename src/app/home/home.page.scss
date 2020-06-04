@@ -17,13 +17,8 @@
   font-weight: 500;
 }
 
-ion-toolbar.in-toolbar.md.toolbar-title-default.hydrated {
-  --background: #1e867f;
-  --color: white;
-}
 
 h3.title_ {
-  color: #042241;
   font-family: Gotham;
   font-weight: bold;
   font-size: 18px;
@@ -59,20 +54,18 @@ ion-card.welcome_card{
   padding: 0px 10px 5px 10px;
 }
 
-ion-toolbar{
-  --background: #042241 !important;
-}
+// ion-toolbar{
+//   --background: #042241 !important;
+// }
 
 
 
 .main_ttl .Rabbanas_title{
-  color: #fff;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 400;
+  margin-top: 9px;
 }
-ion-menu-button.hydrated {
-  color: #fff;
-}
+
 ion-card-header.crd_headr {
   padding: 0px;
 }
@@ -83,9 +76,7 @@ ion-card-content.crd_cnt {
 .Cate__ {
   padding: 40px;
 }
-ion-content {
-  --ion-background-color: #042241 !important;
-}
+
 
 
 .category_content {
@@ -161,4 +152,19 @@ border-color: #488aff;
 border-color: #32db64;
 -webkit-animation-delay: -0.5s;
 animation-delay: -0.5s;
+}
+
+ion-toolbar.in-toolbar.ios.toolbar-title-default.hydrated {
+  padding-top: 25px;
+  padding-bottom: 9px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+
+ion-toolbar.in-toolbar.md.toolbar-title-default.hydrated {
+  padding-top: 25px;
+  padding-bottom: 9px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }

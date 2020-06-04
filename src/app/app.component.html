@@ -12,7 +12,7 @@
             <ion-item class="item_nav" (click)="openAppPages(a.url)">
 
               <div class="box_" >
-                <button class="app_ttl" >{{a.title}}</button>
+                <button class="app_ttl" color="primary">{{a.title}}</button>
               </div>
 
                 <!-- <ion-card class="my-card" >
@@ -29,3 +29,21 @@
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>
 </ion-app>
+
+
+<style>
+ion-toolbar.in-toolbar.ios.toolbar-title-default.hydrated {
+    /* padding-bottom: 33px; */
+    height: 75px;
+    padding-top: 17px;
+}
+
+ion-toolbar.in-toolbar.md.toolbar-title-default.hydrated {
+    /* padding-bottom: 33px; */
+    height: 75px;
+    padding-top: 17px;
+}
+
+
+
+</style>

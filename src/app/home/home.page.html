@@ -3,17 +3,17 @@
 
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons slot="start"  color="primary">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title class="main_ttl">
+    <ion-title class="main_ttl"  color="primary">
       <h3 class="Rabbanas_title"> Duas</h3>
  
     </ion-title>
 
     <ion-buttons slot="end">
-    <ion-icon name="settings" (click)="settingsPage()" style="color: white;  font-size: 23px;
-    padding-right: 10px;"></ion-icon>
+    <ion-icon name="settings" (click)="settingsPage()" style="  font-size: 23px;
+    padding-right: 10px;" color="primary"></ion-icon>
   </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -34,7 +34,7 @@
   
 
     <ion-card class="welcome_card" *ngFor="let a of items" (click)="OpenDetail(a)">
-        <h3 class="title_">{{a?.title}}</h3>
+        <h3 class="title_"  color="primary">{{a?.title}}</h3>
       <ion-card-header class="crd_headr">
       
         <ion-card-title class="title_c">{{a?.do1}}</ion-card-title>

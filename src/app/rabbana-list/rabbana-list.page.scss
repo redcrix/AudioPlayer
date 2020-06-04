@@ -1,12 +1,10 @@
 ion-menu-button.hydrated {
-    color: #fff;
+
     margin-top: -2px;
     font-size: 39px;
 }
 
-ion-content {
-  --ion-background-color: #042241 !important;
-}
+
 
 .Box {
     background: #FEFCD1;
@@ -119,7 +117,6 @@ ion-item.item-label.item.ios.ion-focusable.hydrated {
 ion-label.sc-ion-label-ios-h {
   font-family: Gotham;
   font-weight: bold;
-  color: #042241;
 }
 
 
@@ -152,16 +149,11 @@ ion-segment-button.Ct_btn {
 
 }
 // #8993c9
-ion-toolbar{
-    --background: #042241 !important;
-    color: white;
-}
+
 
 ion-segment{
   --border-color: white;
-    --background: #042241 !important;
-    --background-hover: #042241 !important;
-    --background-checked: #042241;
+  --background: var(--ion-color-primary)
 }
 
 ion-header{
@@ -238,6 +230,7 @@ ion-icon.str-icn {
     float: right;
     margin-top: 15px;
     margin-left: 43px;
+    color: white;
 } 
 ion-label.accord_hd {
     color: #042241;
@@ -440,11 +433,11 @@ ion-icon.dnld_file {
 
 ion-footer ion-toolbar:first-child {
   --border-color: white;
-  --background: #042241 !important;
+  --background: var(--ion-color-primary) !important
 }
 
 .outer_button{
-  background: #042241;
+  --background: var(--ion-color-primary);
   border-radius: 3em 3em;
   /* border: solid; */
   width: 81px;
@@ -456,13 +449,13 @@ ion-footer ion-toolbar:first-child {
 }
 
 p.p_B {
-  margin-top: 12px;
-  background: #042241 !important;
+  margin-top: 8px;
+  background: #BA9647 !important;
   color: white;
   border-radius: 37px;
   height: 30px;
   width: 33px;
-  padding-top: 5px;
+  padding-top: 4px;
   font-weight: bold;
   margin-right: 8px;
 }
@@ -471,4 +464,14 @@ p.p_B {
   margin-bottom: -50px;
   text-align: center;
   vertical-align: middle;
+}
+
+ion-icon.shr-icn.md.hydrated {
+  margin-left: 43px;
+  color: white;
+}
+
+ion-icon.shr-icn.ios.hydrated {
+  margin-left: 43px;
+  color: white;
 }

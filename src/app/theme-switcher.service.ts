@@ -26,8 +26,8 @@ export class ThemeSwitcherService {
       {
         name: 'day',
         styles: [
-          { themeVariable: '--ion-color-primary', value: '#042241'},
-          { themeVariable: '--ion-color-primary-rgb', value: '#d33939'},
+          { themeVariable: '--ion-color-primary', value: '#BA9647'},
+          { themeVariable: '--ion-color-primary-rgb', value: '#BA9647'},
           // { themeVariable: '--ion-color-primary-rgb', value: '56, 128, 255'},
           // { themeVariable: '--ion-color-primary-contrast', value: '#ffffff'},
           // { themeVariable: '--ion-color-primary-contrast-rgb', value: '255,255,255'},
@@ -38,14 +38,14 @@ export class ThemeSwitcherService {
           // { themeVariable: '--ion-tabbar-background-color', value: '#fff'},
           // { themeVariable: '--ion-tabbar-ios-text-color-active', value: '#ffffff'},
           // { themeVariable: '--ion-tabbar-md-text-color-active', value: '#ffffff'},
-          { themeVariable: '--cust', value: '#d33939'},
+          // { themeVariable: '--cust', value: '#d33939'},
           { themeVariable: '--ion-background-color', value: '#fff'}
         ]
       },
       {
         name: 'night',
         styles: [
-          { themeVariable: '--ion-color-primary', value: '#fff'},
+          { themeVariable: '--ion-color-primary', value: '#664323'},
           { themeVariable: '--ion-color-primary-rgb', value: '#d33939'},
           // { themeVariable: '--ion-color-primary-contrast', value: '#ffffff'},
           // { themeVariable: '--ion-color-primary-contrast-rgb', value: '255,255,255'},
@@ -56,7 +56,7 @@ export class ThemeSwitcherService {
           { themeVariable: '--cust', value: '#d33939'},
           { themeVariable: '--ion-tabbar-ios-text-color-active', value: '#ffffff'},
           { themeVariable: '--ion-tabbar-md-text-color-active', value: '#ffffff'},
-          { themeVariable: '--ion-background-color', value: '#042241'}
+          { themeVariable: '--ion-background-color', value: '#BA9647'}
         ]
       }
     ]

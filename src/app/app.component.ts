@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { RemoteServiceService } from './remote-service.service';
 import { Router, NavigationExtras } from '@angular/router';
+import {ThemeSwitcherService }from '../app/theme-switcher.service';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -39,11 +41,7 @@ export class AppComponent {
       url: 'settings',
       icon: 'list'
     },
-    {
-      title: 'More information',
-      url: 'list',
-      icon: 'list'
-    },
+
     // {
     //   title: 'Recently Viewed',
     //   url: 'recentlyviewed',
@@ -54,12 +52,14 @@ export class AppComponent {
  
 
   constructor(
+    private storage: Storage,
     public navCtrl: NavController,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private httpService:RemoteServiceService,
-    private router: Router
+    private router: Router,
+    public themeSwitcher: ThemeSwitcherService, 
   ) {
 
     this.httpService.getListing().subscribe(res => {
@@ -78,6 +78,45 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+
+      if (this.platform.is('ios')) {
+
+        this.storage.get('ThemeMode').then((res) => {
+  
+  
+          if (res === 'day') {
+            this.themeSwitcher.setTheme('day');
+          }
+  
+          if (res === 'night') {
+            this.themeSwitcher.setTheme('night');
+          }
+  
+  
+        });
+      }
+      // else {
+  
+        if (localStorage.getItem("ThemeMode")){
+  
+          console.log('==================');
+        let VA =localStorage.getItem("ThemeMode");
+  
+        console.log(VA);
+  
+        if(VA === 'day'){
+          this.themeSwitcher.setTheme('day');
+        }
+  
+        if(VA === 'night'){
+          this.themeSwitcher.setTheme('night');
+        }
+  
+        }
+
+
+
     });
   }
 

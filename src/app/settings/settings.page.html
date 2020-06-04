@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content>
-
+<!-- <img src ="../../assets/"> -->
   <ion-list>
     <ion-item class="xl_">
       <ion-label>Night Theme</ion-label>
@@ -29,10 +29,10 @@
 
     </ion-list>
 
-    <div class="Items">
+    <div class="Items" *ngIf="view">
 
       <div class="xl_list">
-        <p class="L_">
+        <p class="L_" (click)="share()">
           <span class="xl_pos">
           <ion-icon name="share" class="xl_icon"></ion-icon>
         </span>
@@ -46,21 +46,7 @@
           Rate the app
         </p>
 
-        <p class="L_">
-          <span class="xl_pos">
-          <ion-icon name="logo-twitter" class="xl_icon"></ion-icon>
-        </span>
-          Follow us on Twitter
-        </p>
-
-        <p class="L_">
-          <span class="xl_pos">
-          <ion-icon name="logo-facebook" class="xl_icon"></ion-icon>
-        </span>
-          Like us on Facebook
-        </p>
-
-        <p class="L_">
+        <p class="L_" (click)="contact_us()">
           <span class="xl_pos">
           <ion-icon name="contact" class="xl_icon"></ion-icon>
         </span>
@@ -70,6 +56,108 @@
       </div>
       
     </div>
+
+    <div class="contact_form" *ngIf="contact_form">
+
+ 
+
+      <div class="in_l">
+
+      <p class="label_">
+        Name: 
+      </p>
+
+      <p class="txt">
+        Abu Abdillah Shabir Girrach
+      </p>
+    </div>
+    <div class="in_l">
+
+      <p class="label_">
+        Email: 
+      </p>
+
+      <p class="txt_mail" (click)="mailM()">
+        shabirgirrach@gmail.com
+      </p>
+    </div>
+    <div class="in_l">
+
+      <p class="label_">
+        YouTube: 
+      </p>
+
+      <p class="txt" (click)="openUrl()">
+        https://bit.ly/2Br0Mjc
+      </p>
+    </div>
+
+    </div>
+
+
+
+
+    <form  *ngIf="sendM"
+    [formGroup]="form" 
+    (ngSubmit)="sendMessage()">
+
+    <ion-list>
+
+      <p class="outLin" (click)="close()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+       </p>
+
+
+       <ion-item margin-bottom> 
+          <ion-label>To:</ion-label> 
+          <ion-input
+             type="email"
+             formControlName="to"></ion-input> 
+       </ion-item>
+
+
+       <ion-item margin-bottom> 
+          <ion-label>Cc:</ion-label> 
+          <ion-input
+             type="email"
+             formControlName="cc"></ion-input> 
+       </ion-item>
+
+
+       <ion-item margin-bottom> 
+          <ion-label>Bcc:</ion-label> 
+          <ion-input
+             type="email"
+             formControlName="bcc"></ion-input> 
+       </ion-item>
+       
+
+
+
+       <ion-item margin-bottom> 
+          <ion-label>Subject:</ion-label> 
+          <ion-input
+             type="string"
+             formControlName="subject"></ion-input> 
+       </ion-item>
+
+
+       <ion-item margin-bottom> 
+          <ion-label>Message:</ion-label> 
+          <ion-textarea
+             formControlName="message"></ion-textarea> 
+       </ion-item>
+ 
+ 
+       <button
+          ion-button
+          color="primary"
+          text-center
+          block [disabled]="!form.valid">Send your message</button>
+    </ion-list> 
+ </form>
+
+
 
 
 </ion-content>

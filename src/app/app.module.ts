@@ -29,6 +29,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { Calendar } from '@ionic-native/calendar/ngx';
 import {CalPage } from './rabbana-list/calender_Time';
 import { Media } from '@ionic-native/media/ngx';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { AppRate } from '@ionic-native/app-rate/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
    declarations: [AppComponent,CalPage],
@@ -44,8 +47,12 @@ import { Media } from '@ionic-native/media/ngx';
     ListPageModule,
     BrowserAnimationsModule,
     
+    
   ],
   providers: [
+    InAppBrowser,
+    EmailComposer,
+    AppRate,
      AnimationService,
     NativeAudio,
     SocialSharing,
