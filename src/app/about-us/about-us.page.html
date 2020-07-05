@@ -31,11 +31,14 @@
     Please feel free to share with others and contact me if you have any suggestions or thoughts on the material.  </p>
 
 
-    <p (click)="mailM()" class="mailTxt" >shabirgirrach@gmail.com 
+    <p  class="mailTxt" >
+      <a href="mailto: shabirgirrach@gmail.com "> 
+        shabirgirrach@gmail.com 
+        </a>
     </p>
 
     <p class="app_dev">
-      App Developer – <span class="adbits_text"> ADBITS</span>
+      App Developer – <span class="adbits_text" (click)="openWithInAppBrowser('adbits.com')"> www.adbits.com</span>
     </p>
 
     <form  *ngIf="sendM"

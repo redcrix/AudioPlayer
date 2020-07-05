@@ -471,104 +471,26 @@ export class RabbanaListPage implements OnInit {
      public modalController: ModalController
 
      ) {
-
-    
-      // this.platform.ready().then(() => {
-      //   // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
-      //   if(!this.platform.is('cordova')) {
-      //     return false;
-      //   }
-  
-      //   if (this.platform.is('ios')) {
-      //     this.storageDirectory = cordova.file.documentsDirectory;
-      //   }
-      //   else if(this.platform.is('android')) {
-      //     this.storageDirectory = cordova.file.externalDataDirectory;
-      //   }
-      //   else {
-        
-      //     return false;
-      //   }
-      // })
-  
-
-      // this.remoteServiceService.getListing().subscribe(res => {
-    
-      //   this.AllList = res;
-      // });
-
-   
-        // fetch('../../assets/rabannas_data.json').then(res => res.json())
-        // .then(json => {
-        //   this.AllList = json;
-        //   console.log(this.data);
-        // });
-      
-
-      this.ShowPlay = false;
-
-    // this.route.queryParams.subscribe(_params => {
-      // if (this.router.getCurrentNavigation().extras.state) {
-      
-  
-
-      
-
-        // this.copyX = true;
-
-        
+      this.ShowPlay = false; 
         this.data = '';
-          // this.data = this.router.getCurrentNavigation().extras.state.current;
-          // this.AllList = this.router.getCurrentNavigation().extras.state.AllList;
-          console.log('=========================='+this.data);
-
-          if(this.data){
+      if(this.data){
 
             console.log('=========================='+this.data);
-            // setTimeout(() => {
-            //   this.slides.slideTo(10,0);
-            // });
-
-         
+       
           }
 
           if(this.data){
             
             console.log('On Page Load from Last=======');
-
-  
-            console.log(this.category);
-            console.log(this.lists);
-            console.log(this.duasAudio);
-            console.log(this.data.duasAudio);
-            console.log(this.AllList);
-                         
-              console.log('.'+this.AllList);
    
       }
 
     
-
-         
-    // }); 
-
-
-    // console.log('LOCAL STORAGE JS/WORK ON ANDROID.'+localStorage.getItem("BookMarkList"));
-
-    // if(this.copyX = true){
-    //   console.log(this.duasAudio);
-    //   this.nativeAudio
-    //   .preloadComplex('track1', this.duasAudio, 1, 1, 0)
-    //   .then(this.onSuccessPreloading, this.onError);
-    //   this.ShowPlay = true;
-    // }
     
    }
 
 async  ngOnInit() {
-console.log("sad==================================sdsdsdAWE")
       this.route.queryParams.subscribe(params => {
-        console.log("HAPPY============"+params.current)
         this.Check({'title':params.current});
         this.recentlyViewed({'title':params.current});
       });
@@ -576,11 +498,7 @@ console.log("sad==================================sdsdsdAWE")
 
   
       this.curr_playing_file.stop();
-    
 
-      // setTimeout(() => {
-      //   this.prepareAudioFile();
-      // }, 2000)
 
   }
 
